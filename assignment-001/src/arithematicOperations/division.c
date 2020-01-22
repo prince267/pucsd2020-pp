@@ -1,4 +1,4 @@
 #include "../../include/arithmetic.h"
-float division(float a,float b){
-    return a/b;
+float division(float firstOperand,float secondOperand){
+    return firstOperand/secondOperand;
 }

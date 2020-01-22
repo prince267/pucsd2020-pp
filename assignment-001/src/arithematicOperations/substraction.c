@@ -1,4 +1,4 @@
 #include "../../include/arithmetic.h"
-float substraction(float a,float b){
-    return a-b;
+float substraction(float firstOperand,float secondOperand){
+    return firstOperand-secondOperand;
 }

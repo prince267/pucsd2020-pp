@@ -1,4 +1,4 @@
 #include "../../include/arithmetic.h"
-float addition(float a,float b){
-    return a+b;
+float addition(float firstOperand,float secondOperand){
+    return firstOperand+secondOperand;
 }
