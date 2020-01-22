@@ -1,11 +1,11 @@
 #include "../../include/calculator.h"
 #include "../../include/arithmetic.h"
 
-float applyOperation(float a, float b, char op){ 
-	switch(op){ 
-		case '+': return addition(a,b); 
-		case '-': return substraction(a,b); 
-		case '*': return multiplication(a,b); 
-		case '/': return division(a,b); 
+float applyOperation(float firstOperand, float secondOperand, char operator){ 
+	switch(operator){ 
+		case '+': return addition(firstOperand,secondOperand); 
+		case '-': return substraction(firstOperand,secondOperand); 
+		case '*': return multiplication(firstOperand,secondOperand); 
+		case '/': return division(firstOperand,secondOperand); 
 	} 
 } 

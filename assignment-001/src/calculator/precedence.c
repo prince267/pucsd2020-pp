@@ -1,8 +1,8 @@
 #include "../../include/calculator.h"
-int precedence(char op){ 
-	if(op == '+'||op == '-') 
+int precedence(char operator){ 
+	if(operator == '+'||operator == '-') 
 	return 1; 
-	if(op == '*'||op == '/') 
+	if(operator == '*'||operator == '/') 
 	return 2; 
 	return 0; 
 } 
