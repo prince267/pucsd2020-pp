@@ -1,3 +1,3 @@
-int precedence(char op);
-float applyOperation(float a, float b, char op);
-float evaluate(char tokens[]);
+int precedence(char operator);
+float applyOperation(float firstOperand, float secondOperand, char operator);
+float evaluate(char expression[]);
