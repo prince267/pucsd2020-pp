@@ -1,4 +1,5 @@
 #include "include/calculator.h"
+#include "include/validate.h"
 #include<stdio.h>
 #include<string.h>
 
@@ -13,8 +14,17 @@ void main() {
         scanf("%s",expression);
         if(strcmp(expression,"q")==0)
             break;
-        result=evaluate(expression);
-        printf(">>> %f\n",result);
+        int check=validateExpression(expression);
+        if(check){
+            result=evaluate(expression);
+            printf(">>> %f\n",result);
+        }
+        else
+        {
+            printf(">>> Invalid Expression\n");
+        }
+        
     }
+
 } 
     
