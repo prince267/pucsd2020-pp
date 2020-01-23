@@ -1,6 +1,6 @@
-#Programming paradigm
-Assignment-001
+# Programming paradigm
+## Assignment-001
 Calculator
 
-Assignment-002
+## Assignment-002
 Resume in html
