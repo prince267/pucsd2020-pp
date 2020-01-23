@@ -23,7 +23,7 @@ for(i=0;i<strlen(expression);i++){
             return 0;
     }
     else if(expression[i]=='(')
-    symbolBalance++;
+        symbolBalance++;
     else if(expression[i]==')'){
         symbolBalance--;
         if(symbolBalance<0)
