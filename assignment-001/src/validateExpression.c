@@ -7,6 +7,8 @@ int i;
 int symbolBalance=0;
 int toggle=1;
 for(i=0;i<strlen(expression);i++){
+    if(expression[i]==' ')
+        continue;
     if(isdigit(expression[i])){
         while(isdigit(expression[i]) && i<strlen(expression))
             i++;

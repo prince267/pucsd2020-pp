@@ -11,7 +11,7 @@ void main() {
     while(1)
     {
         printf(">>> ");
-        scanf("%s",expression);
+        scanf("%[^\n]%*c",expression);
         if(strcmp(expression,"q")==0)
             break;
         int check=validateExpression(expression);
