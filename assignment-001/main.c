@@ -1,5 +1,4 @@
 #include "include/calculator.h"
-#include "include/validate.h"
 #include<stdio.h>
 #include<string.h>
 

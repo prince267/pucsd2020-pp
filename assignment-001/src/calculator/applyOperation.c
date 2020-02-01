@@ -1,5 +1,4 @@
 #include "../../include/calculator.h"
-#include "../../include/arithmetic.h"
 
 float applyOperation(float firstOperand, float secondOperand, char operator){ 
 	switch(operator){ 
