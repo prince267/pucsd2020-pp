@@ -6,6 +6,12 @@
     width: 200px;
   }
   
+  .mat-direction{
+display: flex;
+flex-direction: row;
+justify-content: center;
+  }
+
   .sidenav .mat-toolbar {
     background: inherit;
   }
