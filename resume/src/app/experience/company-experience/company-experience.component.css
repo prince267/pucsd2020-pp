@@ -1,0 +1,16 @@
+.experience-card {
+    width: 80%;
+    display: block;
+    margin-left:auto;
+    margin-right:auto;  
+  }
+
+  .imageBlock{
+      margin-left: 80%;
+      height: 100px;
+      width: 100px;
+  }
+
+  .companyName{
+      color: crimson;
+  }
