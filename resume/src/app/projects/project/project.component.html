@@ -1,34 +1,77 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<!-- <div class="row col-md-12">
+    <h1>Personal Projects.</h1>
+</div>
+<div class="row col-md-12">
+    <p>In this section you will find the personal projects in which I have worked in since I started to study the degree.</p>
+    <p>I would like to remark that the projects are in chronological order, at top the newest and at the bottom my first project. With that you could se my improvement as profesional</p>
+    <p>Click on the left area to choose one project and see more information about it.</p> -->
+<!-- </div> -->
+<div class="bgimg-2 w3-display-container w3-opacity-min">
+    <br>
+    <div class="row col-md-12 centerText">
+        <b><h1><u>Personal Projects</u></h1></b>
+    </div>
+    <br>
+    <br>
+<mat-card class="example-card">
+    <br>
+    <mat-card-title>Two Pass Assembler </mat-card-title>
+    <br>
+    <mat-card-content>
+        <div class="row col-md-12"><b>About the project: </b></div>
+        <div 
+            class="row col-md-12">
+            <p>Design & implementation of a tool to generate symbol table, intermediate code and listing file from
+                x86 assembly code in Python.</p> 
+        </div>
+        <div class="row col-md-12"><b>Technologies: </b></div>
+        <div class="row col-md-12"><p>Python</p></div>
+        <div class="row col-md-12"><b>Repository: </b></div>
+        <div class="row col-md-12 linkColour"><p><a href="https://github.com/prince267/2-Pass-Assembler" target="_blank">See the repository</a></p></div>
+    </mat-card-content>
+</mat-card>
+<br>
+<mat-card class="example-card">
+    <br>
+    <mat-card-title>Peer-to-Peer-File-Sharing </mat-card-title>
+    <br>
+    
+    <mat-card-content>
+        <div class="row col-md-12"><b>About the project: </b></div>
+        <div 
+            class="row col-md-12">
 
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
-  
-    <!-- Position Column -->
-    <ng-container matColumnDef="position">
-      <th mat-header-cell *matHeaderCellDef> No. </th>
-      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-    </ng-container>
-  
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-    </ng-container>
-  
-    <!-- Weight Column -->
-    <ng-container matColumnDef="weight">
-      <th mat-header-cell *matHeaderCellDef> Weight </th>
-      <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-    </ng-container>
-  
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="symbol">
-      <th mat-header-cell *matHeaderCellDef> Symbol </th>
-      <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-    </ng-container>
-  
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-  
-  
+            <p>File tranfer using AdHoc network . A peer-to-peer network allows computer hardware and software to communicate without the need for a server. 
+                <p>Unlike client-server architecture, there is no central server for processing requests in a P2P architecture.</p> 
+            <p>The peers directly interact with one another without the requirement of a central server.</p>
+        </div>
+        <div class="row col-md-12"><b>Technologies: </b></div>
+        <div class="row col-md-12"><p>C language</p></div>
+        <div class="row col-md-12"><b>Repository: </b></div>
+        <div class="row col-md-12 linkColour"><p><a href="https://github.com/prince267/Peer-to-Peer-File-Sharing" target="_blank">See the repository</a></p></div>
+    </mat-card-content>
+</mat-card>
+<br>
+<mat-card class="example-card">
+    <br>
+    <mat-card-title>Android Team Display </mat-card-title>
+    <br>
+    
+    <mat-card-content>
+        <div class="row col-md-12"><b>About the project: </b></div>
+        <div 
+            class="row col-md-12">
+            <p>
+                Android Application for Team Leader in any organisation to send message and reciece Message from Senior manager and Team Members
+
+            </p> 
+        </div>
+        <div class="row col-md-12"><b>Technologies: </b></div>
+        <div class="row col-md-12"><p>React Native</p></div>
+        <div class="row col-md-12"><b>Repository: </b></div>
+        <div class="row col-md-12 linkColour"><p><a href="https://github.com/prince267/androidTeamdisaply" target="_blank">See the repository</a></p></div>
+    </mat-card-content>
+</mat-card>
+
+
+</div>
