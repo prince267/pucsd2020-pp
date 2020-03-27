@@ -1,12 +1,8 @@
-.example-card {
-    /* top: 20px;
-    max-width: 80%;
-    vertical-align: middle; */
+.project-card {
     width: 80%;
     display: block;
     margin-left:auto;
     margin-right:auto;  
-    /* vertical-align:middle; */
   }
   .linkColour{
     color: #008CBA
