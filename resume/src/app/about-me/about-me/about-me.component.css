@@ -1,0 +1,23 @@
+.mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+
+  .p1 {
+    font-weight: 500;
+    font-size: 110%;
+  }
+
+  .test1{
+      margin-left: 50px;
+  }
+
+  .test2{
+    margin-left: 100px;
+}
+  .dot {
+    height: 5px;
+    width: 5px;
+    background-color: black;
+    border-radius: 50%;
+    display: inline-block;
+  }

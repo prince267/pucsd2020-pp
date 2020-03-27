@@ -2,9 +2,9 @@
     <h3 class="w3-center"><i>Who am I</i></h3>
     <p class="w3-center"><em><h1>My name is <b>Prince Kumar</b></h1></em></p>
     <div class="w3-row">
-        <div class="w3-col m6 w3-center w3-padding-large">
+        <div class="w3-col m4 w3-center w3-padding-large">
             <img src="../../assets/profile.jpeg"
-                class="w3-round w3-image w3-hover-opacity" alt="Photo of Me" width="500" height="333">
+                class="w3-round w3-image w3-hover-opacity" alt="Photo of Me" width="200" height="200">
         </div>
 
         <div class="w3-col m6 w3-hide-small w3-padding-large">
@@ -13,6 +13,75 @@
                     with friends and eating.</p>
             </div>
         </div>
+        <br>
+        <hr>
+        <br>
+        <p class="w3-row"><em><h1>Education Qualification</h1></em></p>
+        <mat-accordion>
+            <mat-expansion-panel (opened)="panelOpenState = true"
+                                 (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title class="p1">
+                    Master of Computer Application
+                </mat-panel-title>
+                <mat-panel-description class="test1">2017 - present
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <p>Department of Computer Science, Pune University</p>
+              <span class="dot"></span>
+              &nbsp;Have an average GPA of 7.45 till fifth semester.
+            </mat-expansion-panel>
+          </mat-accordion>
         
+          <mat-accordion>
+            <mat-expansion-panel (opened)="panelOpenState = true"
+                                 (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title class="p1">
+                    Bachelor of Computer Application (H)
+                </mat-panel-title>
+                <mat-panel-description>2014 - 2017
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <p>Marwari College, Ranchi University</p>
+              <span class="dot"></span>
+              &nbsp;Passed with 72.07%
+            </mat-expansion-panel>
+          </mat-accordion>
+        
+          <mat-accordion>
+            <mat-expansion-panel (opened)="panelOpenState = true"
+                                 (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title class="p1">
+                    12th (Senior Secondary)
+                </mat-panel-title>
+                <mat-panel-description class="test2">2013 – 2014
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <p>Kendriya Vidyalaya Ramgarh Cantt</p>
+              <span class="dot"></span>
+              &nbsp;Scored 82.50%
+            </mat-expansion-panel>
+          </mat-accordion>
+
+          <mat-accordion>
+            <mat-expansion-panel (opened)="panelOpenState = true"
+                                 (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title class="p1">
+                    10th (Higher Secondary)
+                </mat-panel-title>
+                <mat-panel-description class="test2" >2011 – 2012
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <p>Kendriya Vidyalaya Ramgarh Cantt</p>
+              <span class="dot"></span>
+              &nbsp;Scored 85.50%
+            </mat-expansion-panel>
+          </mat-accordion>
+        
+</div>
+<div>
 </div>
 
