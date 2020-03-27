@@ -11,7 +11,6 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import { HomeComponent } from './home/home.component';
-import { AboutMeComponent } from './about-me/about-me.component';
 import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
@@ -19,7 +18,6 @@ import { ContactComponent } from './contact/contact.component';
     AppComponent,
     MainNavComponent,
     HomeComponent,
-    AboutMeComponent,
     ContactComponent
   ],
   imports: [
