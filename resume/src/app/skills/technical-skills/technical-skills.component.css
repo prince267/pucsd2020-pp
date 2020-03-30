@@ -1,0 +1,26 @@
+  .head{
+      padding: 10px;
+      text-align: center;
+      font-weight: 900;
+  }
+  .descrp{
+     padding: 20px;
+     font-size: medium;
+     font-weight: 500;
+  }
+  .project-card {
+    width: 80%;
+    height: 900px;
+    display: block;
+    margin-left:auto;
+    margin-right:auto;  
+  }
+  .imageBlock{
+    height: 50px;
+    width: 50px;
+}
+
+  .title-css{
+      font-size: larger;
+      font-weight: 500;
+  }

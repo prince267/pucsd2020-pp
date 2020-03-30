@@ -1,1 +1,37 @@
-<p>technical-skills works!</p>
+<div class="bgimg-2 w3-display-container w3-opacity-min">
+    <div class="head">
+        <h1>Professional skills</h1>
+    </div>
+    <div class="descrp">
+        <p>In this section you can see a summary of my professional skills, in some I have professional experience, in others just my own experience.</p>
+        <p>I would like to remark that I am always up to learning something new, a new technology, a new language, I don't mind. I am always eager to learn.</p>
+    </div>
+    <mat-grid-list class="project-card" cols="1">
+        
+        <mat-grid-list cols="5" rowHeight="2:1">
+            <div class="title-css">Language</div>
+    <mat-grid-tile *ngFor="let lang of languages">
+        <img src="{{lang.icon}}" alt="languages" height="49">
+        <div class="title-css">&ensp;{{lang.name}}</div>
+    </mat-grid-tile>
+    <br>
+    <br>
+</mat-grid-list>
+    <mat-grid-list cols="5" rowHeight="2:1">
+        <div class="title-css">Database</div>
+        <mat-grid-tile *ngFor="let db of Datbases">
+            <img src="{{db.icon}}" alt="Datbases" height="49">
+            <div class="title-css">&ensp;{{db.name}}</div>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <br>
+    <br>
+    <mat-grid-list cols="5" rowHeight="2:1">
+        <div class="title-css">Framework/Library</div>
+        <mat-grid-tile *ngFor="let fl of Framework">
+            <img src="{{fl.icon}}" alt="Framework" height="49">
+            <div class="title-css">&ensp;{{fl.name}}</div>
+        </mat-grid-tile>
+    </mat-grid-list>
+    </mat-grid-list>
+</div>
