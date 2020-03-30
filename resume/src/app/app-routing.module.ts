@@ -17,6 +17,10 @@ loadChildren: () =>import('./about-me/about-me.module').then(m=>m.AboutMeModule)
   {
     path:'experience',
     loadChildren:()=> import('./experience/experience.module').then(m=>m.ExperienceModule)
+  },
+  {
+    path:'skills',
+    loadChildren:() => import('./skills/skills.module').then(m=>m.SkillsModule)
   }
 ];
 
