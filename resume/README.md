@@ -27,3 +27,29 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
 ## Home Page 
+
+![alt text](https://github.com/prince267/pucsd2020-pp/tree/master/resume/src/assets/readmeImages/home.png)
+
+## About Page 
+
+![alt text](https://github.com/prince267/pucsd2020-pp/tree/master/resume/src/assets/readmeImages/about-me.png)
+
+## Experience Page 
+
+![alt text](https://github.com/prince267/pucsd2020-pp/tree/master/resume/src/assets/readmeImages/experience.png)
+
+## Skills Page 
+
+![alt text](https://github.com/prince267/pucsd2020-pp/tree/master/resume/src/assets/readmeImages/skills.png)
+
+## Projects Page 
+
+![alt text](https://github.com/prince267/pucsd2020-pp/tree/master/resume/src/assets/readmeImages/projects.png)
+
+## Contact Page 
+
+![alt text](https://github.com/prince267/pucsd2020-pp/tree/master/resume/src/assets/readmeImages/contact.png)
+
+
+
+
