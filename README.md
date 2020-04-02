@@ -4,3 +4,6 @@ Calculator
 
 ## Assignment-002
 Resume in html
+
+## Resume
+Resume in Angular
