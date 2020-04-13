@@ -13,14 +13,14 @@
     vertical-align: top;
     color: #000;
 }
-  .mat-card{
+.mat-card{
 
     border: 8px rgb(60, 71, 82) #000;
     border-radius: 8px !important;
 
    }
   
-   ::ng-deep .mat-label{
+::ng-deep .mat-label{
     position: relative !important;
     margin-top:55px;
 }
