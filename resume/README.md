@@ -1,3 +1,5 @@
+# You can see Resume by clicking this [resume](https://resume-29376.web.app/home)
+
 # Resume
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.2.
