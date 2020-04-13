@@ -15,7 +15,6 @@ export class RegisterUserComponent implements OnInit {
     private _snackBar: MatSnackBar,
     private formBuilder: FormBuilder,
     private dataService: DataService,
-    private router: Router,
   ) { }
   registerForm: FormGroup;
   firstname = new FormControl('', [Validators.required, Validators.maxLength(100)]);

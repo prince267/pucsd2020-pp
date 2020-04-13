@@ -3,7 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { DataService } from '../data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router'
+
 export interface DialogData {
   id: string;
   Photo: string;
@@ -21,7 +21,6 @@ export interface DialogData {
 export class UserDialogComponent implements OnInit {
 
   constructor(
-    private router: Router,
     private _snackBar: MatSnackBar,
     private dataService: DataService,
     private formBuilder: FormBuilder,
