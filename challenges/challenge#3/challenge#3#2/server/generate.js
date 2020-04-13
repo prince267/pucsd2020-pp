@@ -5,12 +5,12 @@ var database = {users : []};
 for (var i = 1; i<= 10; i++) {
   database.users.push({
     id: i,
-    Photo:faker.image.avatar(),
-    FirstName: faker.name.firstName(),
-    LastName: faker.name.lastName(),
-    Email:faker.internet.email(),
-    Password:faker.internet.password(),
-    ContactNumber:faker.phone.phoneNumberFormat().replace(/-/g,""),
+    photo:faker.image.avatar(),
+    first_name: faker.name.firstName(),
+    last_name: faker.name.lastName(),
+    email:faker.internet.email(),
+    password:faker.internet.password(),
+    contact_number:faker.phone.phoneNumberFormat().replace(/-/g,""),
   });
 }
 
