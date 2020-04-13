@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "resume-29376": {
+      "hosting": {
+        "resume": [
+          "resume-29376"
+        ]
+      }
+    }
+  }
+}
