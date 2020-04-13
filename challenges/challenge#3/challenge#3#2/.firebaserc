@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "usercrud-89673": {
+      "hosting": {
+        "Crud": [
+          "usercrud-89673"
+        ]
+      }
+    }
+  }
+}
