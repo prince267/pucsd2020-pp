@@ -1,0 +1,3 @@
+[Mon Apr 13 17:16:11 2020] [logger.c][line: 93] Hello World 
+[Mon Apr 13 17:16:11 2020] [logger.c][line: 94] Logger !!! is Working
+[Mon Apr 13 17:16:11 2020] [logger.c][line: 95] Hurray
