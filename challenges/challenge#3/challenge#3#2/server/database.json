@@ -19,13 +19,13 @@
       "ContactNumber": "1452646309"
     },
     {
-      "id": 6,
       "Photo": "https://s3.amazonaws.com/uifaces/faces/twitter/spbroma/128.jpg",
       "FirstName": "Demetrius",
-      "LastName": "Rice",
+      "LastName": "bhat",
       "Email": "Rosalyn84@yahoo.com",
       "Password": "devevKT0fLuSLOj",
-      "ContactNumber": "2295017702"
+      "ContactNumber": "2295017702",
+      "id": 6
     },
     {
       "id": 8,
@@ -38,12 +38,12 @@
     },
     {
       "Photo": "https://s3.amazonaws.com/uifaces/faces/twitter/wtrsld/128.jpg",
-      "FirstName": "Davida",
-      "LastName": "Jhonson",
-      "Email": "david.jhonson@gmail.com",
-      "Password": "david@123",
-      "ContactNumber": "1234567890",
-      "id": 12
+      "FirstName": "Prince",
+      "LastName": "Kumar",
+      "Email": "prince.kumar267@gmail.com",
+      "Password": "qwerty",
+      "ContactNumber": "9973037160",
+      "id": 13
     }
   ]
 }
