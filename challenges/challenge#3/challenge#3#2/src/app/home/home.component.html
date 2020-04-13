@@ -11,20 +11,20 @@
         <mat-grid-tile *ngFor="let user of users">
             <mat-card class="home-card">
                 <mat-card-header>
-                    <mat-card-title>{{user.FirstName}} {{user.LastName}}</mat-card-title>
+                    <mat-card-title>{{user.first_name}} {{user.last_name}}</mat-card-title>
                     <mat-card-subtitle>User ID: <b>{{user.id}}</b></mat-card-subtitle>
                 </mat-card-header>
-                <img mat-card-image src={{user.Photo}}
+                <img mat-card-image src={{user.photo}}
                     onerror="this.onerror=null; this.src='../../assets/Default.png';">
                 <mat-card-content>
 
                     <p class="txt1"><span class="material-icons">
                             contact_mail
-                        </span> {{user.Email}}</p>
+                        </span> {{user.email}}</p>
 
                     <p class="txt1"><span class="material-icons">
                             call
-                        </span>{{user.ContactNumber}}</p>
+                        </span>{{user.contact_number}}</p>
                 </mat-card-content>
                 <mat-card-actions style="display:flexbox; justify-content: center; align-items: center;">
                     <button mat-raised-button style="width: 46.5%; padding: 4px;" (click)="openDialog(user)"><span

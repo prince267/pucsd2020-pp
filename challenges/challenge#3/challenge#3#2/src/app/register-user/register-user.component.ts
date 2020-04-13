@@ -53,12 +53,12 @@ export class RegisterUserComponent implements OnInit {
 
   onSubmit() {
     let userData = {
-      "Photo": "https://s3.amazonaws.com/uifaces/faces/twitter/wtrsld/128.jpg",
-      "FirstName": this.registerForm.value.firstname,
-      "LastName": this.registerForm.value.lastname,
-      "Email": this.registerForm.value.email,
-      "Password": this.registerForm.value.password,
-      "ContactNumber": this.registerForm.value.contactNumber
+      "photo": "https://s3.amazonaws.com/uifaces/faces/twitter/wtrsld/128.jpg",
+      "first_name": this.registerForm.value.firstname,
+      "last_name": this.registerForm.value.lastname,
+      "email": this.registerForm.value.email,
+      "password": this.registerForm.value.password,
+      "contact_number": this.registerForm.value.contactNumber
     };
     if (this.registerForm.invalid) {
 

@@ -30,8 +30,7 @@
     <br>
     <mat-form-field class="dialog-full-width2" appearance="outline">
       <mat-label>Email</mat-label>
-      <input type="email" matInput placeholder="Email" formControlName="email" maxlength="100" required
-        value="{{data.Email}}">
+      <input type="email" matInput placeholder="Email" formControlName="email" maxlength="100" required>
       <mat-hint align="end">
         {{email.value.length}}/100
       </mat-hint>
@@ -47,8 +46,7 @@
     <br>
     <mat-form-field class="dialog-full-width2" appearance="outline">
       <mat-label>Contact Number</mat-label>
-      <input matInput matInput placeholder="Contact Number" formControlName="contactNumber" maxlength="10" required
-        value="{{data.ContactNumber}}">
+      <input matInput matInput placeholder="Contact Number" formControlName="contactNumber" maxlength="10" required>
       <mat-icon matSuffix>phone</mat-icon>
       <mat-hint align="end">
         {{contactNumber.value.length}}/10
@@ -60,8 +58,7 @@
     <br>
     <mat-form-field class="dialog-full-width2" appearance="outline">
       <mat-label>Password</mat-label>
-      <input maxlength="20" minlength="6" matInput placeholder="Password" formControlName="password" required
-        value="{{data.Password}}">
+      <input maxlength="20" minlength="6" matInput placeholder="Password" formControlName="password" required>
       <mat-icon matSuffix>lock</mat-icon>
       <mat-error *ngIf="password.hasError('required')">
         <strong>Password is required</strong>
