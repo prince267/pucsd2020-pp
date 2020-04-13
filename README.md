@@ -21,7 +21,7 @@ Database Pooling
     
   * Challenge#3
     * Challenge#3#1
-     * Mockup Daigram for UI
+      * Mockup Daigram for UI
     * Challenge#3#2
-     * UI implementation in Angular
+      * UI implementation in Angular
 
