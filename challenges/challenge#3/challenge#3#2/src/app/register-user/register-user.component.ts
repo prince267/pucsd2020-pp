@@ -52,8 +52,8 @@ export class RegisterUserComponent implements OnInit {
   }
 
   onSubmit() {
+    // "photo": "https://s3.amazonaws.com/uifaces/faces/twitter/wtrsld/128.jpg",
     let userData = {
-      "photo": "https://s3.amazonaws.com/uifaces/faces/twitter/wtrsld/128.jpg",
       "first_name": this.registerForm.value.firstname,
       "last_name": this.registerForm.value.lastname,
       "email": this.registerForm.value.email,

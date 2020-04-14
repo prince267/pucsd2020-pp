@@ -7,6 +7,12 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpErrorResponse } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { UserDialogComponent } from '../user-dialog/user-dialog.component'
+
+export interface JSONData{
+  "status":Number;
+  "data":any[];
+}
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -58,21 +64,26 @@ export class HomeComponent implements OnInit, OnDestroy {
     });
   }
   loadUsers() {
-    this.dataService.sendGetRequest().pipe(takeUntil(this.destroy$)).subscribe((data: any[]) => {
-      this.users = data;
+    this.dataService.sendGetRequest().pipe(takeUntil(this.destroy$)).subscribe((Data: JSONData) => {
+      this.users = Data.data;
     })
   }
   getById(id) {
     if (id.trim() == "") {
-      console.log("called")
       this.loadUsers();
     }
     else {
-      this.dataService.getById(id).subscribe((data: any[]) => {
-        console.log(Object.keys(data).length)
-        var stringData = '[' + JSON.stringify(data) + ']'
-        var parseData = JSON.parse(stringData)
-        this.users = parseData;
+      this.dataService.getById(id).subscribe((Data: JSONData) => {
+        let userData=Data.data;
+        if(userData== undefined){
+          this.openSnackBar("No User Found", " 😓")
+            this.loadUsers();
+        }
+        else{
+          var stringData = '[' + JSON.stringify(userData) + ']'
+          var parseData = JSON.parse(stringData)
+          this.users = parseData;
+        }
       },
         (err: HttpErrorResponse) => {
           if (err.error instanceof Error) {
