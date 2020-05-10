@@ -1,10 +1,16 @@
-<mat-toolbar color="primary">
+<mat-toolbar  color="primary">
+  <span class="material-icons">
+    supervised_user_circle
+    </span>
   <h1>
-    ngStore 
+    Access Control List
   </h1>
-  <button mat-button routerLink="/">Home</button>
-  <button mat-button routerLink="/user">About</button>
 
+  <button style="position: absolute; right: 0;" *ngIf="loginService.isAuthenticated" mat-button (click)="logout()">
+    <span class="material-icons">
+      exit_to_app
+      </span>
+    Logout</button>
 </mat-toolbar>
 
 <router-outlet></router-outlet>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Router, NavigationEnd } from "@angular/router";
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import {LoginService} from '../authservice/login.service'
 
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private router:Router
   ) { }
 
   loginForm: FormGroup;
@@ -45,6 +47,7 @@ export class LoginComponent implements OnInit {
     this.loginService.login(loginData).subscribe((data :LoginResponse) => {
       console.log(data)
       localStorage.setItem("token",JSON.stringify(data.data));
+      this.router.navigate(['user'])
     },
     (error: HttpErrorResponse) => {
       console.log(error.status)
