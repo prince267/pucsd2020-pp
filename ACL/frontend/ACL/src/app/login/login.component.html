@@ -1,0 +1,30 @@
+<form class="register-form" [formGroup]="loginForm">
+    <mat-form-field class="register-full-width" appearance="outline">
+      <mat-label>User ID</mat-label>
+      <input matInput placeholder="User ID" formControlName="UserId" maxlength="10" type="number" required >
+      <mat-hint align="end">
+        {{UserId.value.length}}/100
+      </mat-hint>
+  
+      <mat-icon matSuffix>person</mat-icon>
+      <mat-error *ngIf="UserId.hasError('required')">
+        <strong>UserId is required</strong>
+  
+      </mat-error>
+  
+    </mat-form-field>
+    <br>
+    <mat-form-field class="register-full-width2" appearance="outline">
+      <mat-label>Password</mat-label>
+      <input type="email" matInput placeholder="**********" formControlName="Password" maxlength="10" minlength="4" required>
+      <mat-hint align="end">
+        {{Password.value.length}}/100
+      </mat-hint>
+      <mat-icon matSuffix>email</mat-icon>
+      <mat-error *ngIf="Password.hasError('required')">
+        <strong>Password is required</strong>
+      </mat-error>
+      </mat-form-field>
+    <button style="margin-left: 30px;" mat-raised-button color="primary" [disabled]="!loginForm.valid"
+      (click)="onSubmit()">Login</button>
+  </form>
