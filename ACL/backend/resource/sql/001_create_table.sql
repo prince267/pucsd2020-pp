@@ -74,3 +74,4 @@ CREATE TABLE IF NOT EXISTS folder_in_folder (
 )ENGINE = INNODB CHARACTER SET=utf8;
 
 INSERT INTO permission VALUES(1,"READ"),(2,"READ,WRITE");
+INSERT INTO folders(path_name) VALUE("");
