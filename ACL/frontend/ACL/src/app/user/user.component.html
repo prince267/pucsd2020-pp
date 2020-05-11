@@ -1,8 +1,33 @@
-<p style="padding: 13px;">
-    An Angular 9 example application that demonstrates how to use HttpClient to consume REST APIs
-    </p>
-    <p>{{data}}</p>
+<mat-card class="example-card">
+    <mat-card-header>
+        <div mat-card-avatar>
+            <span class="material-icons">
+                person
+            </span>
+        </div>
 
-    <!-- <button style="margin-left: 30px;" mat-raised-button color="primary" 
-    (click)="Logout()">Logout</button> -->
+        <mat-card-title>Hello!!  
+            <div style="display: inline-block; color: darkblue;">
+                {{data.first_name}} {{data.last_name}}
+            </div>
+        </mat-card-title>
+    </mat-card-header>
 
+    <hr>
+    <br>
+    <p style="font-size:larger; font-weight: 500;">Groups</p>
+    <p style="font-size:small; font-weight: 300;">* Click on Group to get User's in Group</p>
+    <mat-card-content>
+        <mat-grid-list cols="4" rowHeight="100px">
+            <mat-grid-tile
+                *ngFor="let group of groups"
+                >
+                <button style="height: 80px; width: 150px;" mat-raised-button color="primary">
+                    <mat-icon>group</mat-icon>
+                    {{group.group_name}}</button>
+            </mat-grid-tile>
+          </mat-grid-list>
+
+    </mat-card-content>
+
+</mat-card>

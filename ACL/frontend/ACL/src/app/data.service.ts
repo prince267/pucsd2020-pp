@@ -26,6 +26,10 @@ export class DataService {
     window.alert(errorMessage);
     return throwError(errorMessage);
   }
+
+  public GetUserGroups(id : number){
+    return this.httpClient.get("http://localhost:9090/webapi/v1/user/"+id)
+  }
   public sendGetRequest() {
     return this.httpClient.get(this.REST_API_SERVER).pipe(retry(3), catchError(this.handleError));
   }

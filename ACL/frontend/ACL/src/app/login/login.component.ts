@@ -3,7 +3,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Router, NavigationEnd } from "@angular/router";
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import {LoginService} from '../authservice/login.service'
-
+import {MatSnackBar} from '@angular/material/snack-bar';
 interface LoginResponse {
   status: number;
   data: object;
@@ -16,6 +16,7 @@ interface LoginResponse {
 export class LoginComponent implements OnInit {
 
   constructor(
+    private _snackBar: MatSnackBar,
     private formBuilder: FormBuilder,
     private loginService: LoginService,
     private router:Router
@@ -36,6 +37,12 @@ export class LoginComponent implements OnInit {
     })
   }
 
+  openSnackBar(message, action) {
+    this._snackBar.open(message, action, {
+      duration: 3000,
+    });
+  }
+
   onSubmit() {
     let loginData = {
       "user_id": this.loginForm.value.UserId,
@@ -53,7 +60,7 @@ export class LoginComponent implements OnInit {
       console.log(error.status)
   
     if(error.status==404){
-      alert("no user")
+      this.openSnackBar("No User Found", " 😓")
     }
     })
   }
