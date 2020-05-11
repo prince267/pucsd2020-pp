@@ -66,7 +66,7 @@ function FolderInFolderMapping(FileFolderMap, HeadParent) {
 
 }
 
-function filesandfolder(files, folder) {
+function FilesFolderRelation(files, folder) {
     var FilesMap = FilesMapping(files.data)
     var FileFolderMap = FolderFileMapping(folder.data, FilesMap)
     // FolderInFolderMapping(FileFolderMap,FilesMap)
@@ -90,4 +90,4 @@ function filesandfolder(files, folder) {
     // console.log("***  ",JSON.stringify(FileFolder))
 }
 
-export { filesandfolder }
+export { FilesFolderRelation }
