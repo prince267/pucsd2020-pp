@@ -10,7 +10,7 @@ import { retry, catchError } from 'rxjs/operators';
 })
 export class DataService {
 
-  private REST_API_SERVER = "http://localhost:3000/users";
+  private REST_API_SERVER = "http://localhost:9090/webapi/v1";
 
   constructor(private httpClient: HttpClient) { }
 
@@ -27,16 +27,26 @@ export class DataService {
     return throwError(errorMessage);
   }
 
-  public GetUserGroups(id : number){
-    return this.httpClient.get("http://localhost:9090/webapi/v1/user/"+id)
+  public GetUserGroups(id: number) {
+    return this.httpClient.get(this.REST_API_SERVER + "/user/" + id)
   }
+
+  async GetUserFolders(id: number){
+    const response= await this.httpClient.get(this.REST_API_SERVER + "/folders/" + id).toPromise()
+    return response
+  }
+  async GetUserFiles(id: number) {
+    const response= await this.httpClient.get(this.REST_API_SERVER + "/files/" + id).toPromise()
+    return response
+  }
+
   public sendGetRequest() {
     return this.httpClient.get(this.REST_API_SERVER).pipe(retry(3), catchError(this.handleError));
   }
   public getById(id) {
     return this.httpClient.get(this.REST_API_SERVER + '/' + id);
   }
-  
+
   public deleteProduct(id) {
     return this.httpClient.delete(this.REST_API_SERVER + '/' + id).pipe(catchError(this.handleError));
   }
