@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../authservice/login.service'
 import { Router } from '@angular/router'
 import { DataService } from '../data.service'
+import {filesandfolder} from '../FilesFolders/FileFolderRelation'
 import * as model from '../models/model'
-import { promise } from 'protractor';
+
 
 @Component({
   selector: 'app-user',
@@ -27,9 +28,11 @@ export class UserComponent implements OnInit {
     this.data = JSON.parse(this.loginService.token())
     this.GetUserGroups(this.data.user_id)
     var userFolders = await this.dataService.GetUserFolders(this.data.user_id)
-    console.log("user folders are ", userFolders)
+    // console.log("user folders are ", userFolders)
     var userFiles = await this.dataService.GetUserFiles(this.data.user_id)
-    console.log("user files are ", userFiles)
+    // console.log("user files are ", userFiles)
+    this.UserFilesFolders= filesandfolder(userFiles,userFolders)
+    console.log("user File Folder ",JSON.stringify(this.UserFilesFolders))
   }
 
   GetUserGroups(id: number) {
