@@ -5,7 +5,8 @@ import {fileDataResponse} from '../models/model'
 interface fileInfo {
   path: string,
   type: string,
-  name:string
+  name:string,
+  permission_id:number
 }
 
 @Component({
@@ -22,6 +23,7 @@ export class FileDataDialogComponent implements OnInit {
 
   FileData: string
   ngOnInit(): void {
+    console.log(this.data)
     this.GetFileData(this.data.path)
   }
 

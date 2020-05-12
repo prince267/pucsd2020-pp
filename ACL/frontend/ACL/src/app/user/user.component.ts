@@ -74,9 +74,12 @@ export class UserComponent implements OnInit {
     // });
   }
 
-  openFileDataDialog(path: string, type: string, name: string) {
+  openFileDataDialog(path: string, type: string, name: string,permission_id:number) {
+    if(type=="Folder"){
+      return
+    }
     this.dialog.open(FileDataDialogComponent, {
-      data: { path, type, name }
+      data: { path, type, name ,permission_id}
     })
   }
 

@@ -1,15 +1,23 @@
-<mat-toolbar  color="primary">
+<mat-toolbar color="primary">
   <span class="material-icons">
     supervised_user_circle
-    </span>
+  </span>
   <h1>
     Access Control List
   </h1>
-
+  <div class="line"></div>
+  <!-- <button mat-button *ngIf="loginService.isAuthenticated" routerLink="/">
+    <span class="material-icons">
+      create_new_folder
+    </span>&ensp;New Folder
+  </button>
+  <button mat-button *ngIf="loginService.isAuthenticated" routerLink="/register"><span class="material-icons">
+      insert_drive_file
+    </span>&ensp;New File</button> -->
   <button style="position: absolute; right: 0;" *ngIf="loginService.isAuthenticated" mat-button (click)="logout()">
     <span class="material-icons">
       exit_to_app
-      </span>
+    </span>
     Logout</button>
 </mat-toolbar>
 
