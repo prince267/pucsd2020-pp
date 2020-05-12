@@ -6,7 +6,8 @@ import { Router } from '@angular/router'
 import { MatDialog } from '@angular/material/dialog';
 import { DataService } from '../data.service'
 import { FilesFolderRelation } from '../FilesFolders/FileFolderRelation'
-import {GroupUserDialogComponent} from '../group-user-dialog/group-user-dialog.component'
+import { GroupUserDialogComponent } from '../group-user-dialog/group-user-dialog.component'
+import { FileDataDialogComponent } from '../file-data-dialog/file-data-dialog.component'
 import * as model from '../models/model'
 
 interface FileFolderNode {
@@ -62,15 +63,21 @@ export class UserComponent implements OnInit {
     })
   }
 
-  openDialog(group_id:Number) {
+  openGroupUserDialog(group_id: Number) {
 
-    const dialogRef = this.dialog.open(GroupUserDialogComponent,{
+    const dialogRef = this.dialog.open(GroupUserDialogComponent, {
       data: group_id
     });
 
     // dialogRef.afterClosed().subscribe(result => {
     //   console.log(`Dialog result: ${result}`);
     // });
+  }
+
+  openFileDataDialog(path: string, type: string, name: string) {
+    this.dialog.open(FileDataDialogComponent, {
+      data: { path, type, name }
+    })
   }
 
 }

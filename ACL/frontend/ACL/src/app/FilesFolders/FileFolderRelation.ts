@@ -69,7 +69,6 @@ function FolderInFolderMapping(FileFolder, HeadParent) {
 
 function FilesFolderRelation(files, folder) {
     var FileFolder=files.data.concat(folder.data)
-    console.log(FileFolder)
     // var FilesMap = FilesMapping(files.data)
     // var FileFolderMap = FolderFileMapping(folder.data, FilesMap)
     // // FolderInFolderMapping(FileFolderMap,FilesMap)
@@ -88,7 +87,6 @@ function FilesFolderRelation(files, folder) {
             HeadParent = HeadParent.concat(ParentFolderId[i])
         }
     }
-    console.log(ChildFolderId,ParentFolderId,HeadParent)
     var FileFolderMap = FolderInFolderMapping(FileFolder, HeadParent)
 
     return FileFolderMap.children

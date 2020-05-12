@@ -21,7 +21,7 @@
             <mat-grid-tile
                 *ngFor="let group of groups"
                 >
-                <button style="height: 40px; width: 100px;" mat-raised-button color="primary" (click)="openDialog(group.group_id)">
+                <button style="height: 40px; width: 100px;" mat-raised-button color="primary" (click)="openGroupUserDialog(group.group_id)">
                     <mat-icon>group</mat-icon>
                     {{group.group_name}}</button>
             </mat-grid-tile>
@@ -46,7 +46,8 @@
             {{node.type == 'Folder' ? 'folder' :'insert_drive_file'}}
             </span>
           </button>
-          {{node.name}}
+          <button mat-button (click)="openFileDataDialog(node.path_name,node.type,node.name)" >{{node.name}}</button>
+          
         </li>
           <!-- use a disabled button to provide padding for tree leaf -->
   

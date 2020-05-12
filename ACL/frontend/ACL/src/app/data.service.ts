@@ -35,13 +35,22 @@ export class DataService {
     return this.httpClient.get(this.REST_API_SERVER + "/groupUsers/" + id)
   }
 
-  async GetUserFolders(id: number){
-    const response= await this.httpClient.get(this.REST_API_SERVER + "/folders/" + id).toPromise()
+  async GetUserFolders(id: number) {
+    const response = await this.httpClient.get(this.REST_API_SERVER + "/folders/" + id).toPromise()
     return response
   }
   async GetUserFiles(id: number) {
-    const response= await this.httpClient.get(this.REST_API_SERVER + "/files/" + id).toPromise()
+    const response = await this.httpClient.get(this.REST_API_SERVER + "/files/" + id).toPromise()
     return response
+  }
+
+  public GetFileData(path: string) {
+    return this.httpClient.get(this.REST_API_SERVER + "/rfile/?path=" + path)
+  }
+
+  public WriteIntoFile(path: string, content: string) {
+    console.log(path,content)
+    return this.httpClient.get(this.REST_API_SERVER + "/wfile/?path=" + path + "&content=" + content)
   }
 
   public sendGetRequest() {
