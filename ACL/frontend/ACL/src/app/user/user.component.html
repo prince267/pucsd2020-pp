@@ -62,7 +62,7 @@
             {{node.name}}
           </button>
           <button mat-icon-button color="primary" [disabled]="node.type=='File' || node.permission_id==1"
-            aria-label="Example icon button with a home icon">
+            aria-label="Example icon button with a home icon" (click)="FileFolderOptionDialog()">
             <mat-icon>add_circle</mat-icon>
           </button>
         </li>
@@ -84,7 +84,7 @@
             </button>
             {{node.name}}
             <button mat-icon-button color="primary" [disabled]="node.type=='File' || node.permission_id==1"
-              aria-label="Example icon button with a home icon">
+              aria-label="Example icon button with a home icon" (click)="FileFolderOptionDialog()">
               <mat-icon>add_circle</mat-icon>
             </button>
           </div>

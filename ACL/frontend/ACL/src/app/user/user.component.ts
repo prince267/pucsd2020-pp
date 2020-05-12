@@ -8,6 +8,7 @@ import { DataService } from '../data.service'
 import { FilesFolderRelation } from '../FilesFolders/FileFolderRelation'
 import { GroupUserDialogComponent } from '../group-user-dialog/group-user-dialog.component'
 import { FileDataDialogComponent } from '../file-data-dialog/file-data-dialog.component'
+import { FileFolderOptionDialogComponent } from '../file-folder-option-dialog/file-folder-option-dialog.component'
 import * as model from '../models/model'
 
 interface FileFolderNode {
@@ -73,13 +74,15 @@ export class UserComponent implements OnInit {
     //   console.log(`Dialog result: ${result}`);
     // });
   }
-
-  openFileDataDialog(path: string, type: string, name: string,permission_id:number) {
-    if(type=="Folder"){
+  FileFolderOptionDialog() {
+    this.dialog.open(FileFolderOptionDialogComponent)
+  }
+  openFileDataDialog(path: string, type: string, name: string, permission_id: number) {
+    if (type == "Folder") {
       return
     }
     this.dialog.open(FileDataDialogComponent, {
-      data: { path, type, name ,permission_id}
+      data: { path, type, name, permission_id }
     })
   }
 

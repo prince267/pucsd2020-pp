@@ -11,7 +11,9 @@ import {MaterialModule} from './material-module';
 import { LoginComponent } from './login/login.component';
 import { GroupUserDialogComponent } from './group-user-dialog/group-user-dialog.component';
 import { FileDataDialogComponent } from './file-data-dialog/file-data-dialog.component';
-import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component'
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { FileFolderOptionDialogComponent } from './file-folder-option-dialog/file-folder-option-dialog.component';
+import { NewFileFolderDialogComponent } from './new-file-folder-dialog/new-file-folder-dialog.component'
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     LoginComponent,
     GroupUserDialogComponent,
     FileDataDialogComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    FileFolderOptionDialogComponent,
+    NewFileFolderDialogComponent
   ],
   imports: [
     BrowserModule,
