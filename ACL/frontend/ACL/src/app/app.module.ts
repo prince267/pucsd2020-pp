@@ -8,13 +8,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserComponent } from './user/user.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MaterialModule} from './material-module';
-import { LoginComponent } from './login/login.component'
+import { LoginComponent } from './login/login.component';
+import { GroupUserDialogComponent } from './group-user-dialog/group-user-dialog.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
-    LoginComponent
+    LoginComponent,
+    GroupUserDialogComponent
   ],
   imports: [
     BrowserModule,

@@ -3,54 +3,24 @@ import { LoginService } from '../authservice/login.service'
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { Router } from '@angular/router'
+import { MatDialog } from '@angular/material/dialog';
 import { DataService } from '../data.service'
 import { FilesFolderRelation } from '../FilesFolders/FileFolderRelation'
+import {GroupUserDialogComponent} from '../group-user-dialog/group-user-dialog.component'
 import * as model from '../models/model'
 
 interface FileFolderNode {
-  user_id	:	number;
-  parent_folder_id	:number	;
-  parent_folder_path	:	string;
-  name	:	string;
-  id	:	number;
-  permission_id	:	number;
-  permission_descrp	:	string;
-  path_name	:	string;
-  type	:	string;
-  
+  user_id: number;
+  parent_folder_id: number;
+  parent_folder_path: string;
+  name: string;
+  id: number;
+  permission_id: number;
+  permission_descrp: string;
+  path_name: string;
+  type: string;
   children?: FileFolderNode[];
 }
-
-// const TREE_DATA: FoodNode[] = [
-//   {
-//     name: 'Fruit',
-//     children: [
-//       { name: 'Apple' ,file:[{hello:"hhh"},{hello:"dddd"}],
-//       type:"sddsdsdsdhs",},
-//       { name: 'Banana',file:[{hello:"hhh"},{hello:"dddd"}] },
-//       { name: 'Fruit loops' ,file:[{hello:"hhh"},{hello:"dddd"}],
-//       type:"sdqqwqwqhs",},
-//     ],
-//     type:"sdhs",
-//     file:[{hello:"hhh"},{hello:"dddd"}]
-//   }, {
-//     name: 'Vegetables',
-//     children: [
-//       {
-//         name: 'Green',
-//         children: [
-//           { name: 'Broccoli' ,file:[{hello:"hhh"},{hello:"dddd"}]},
-//           { name: 'Brussels sprouts' },
-//         ]
-//       }, {
-//         name: 'Orange',
-//         children: [
-//         ],
-//         file:[{hello:"hhh"},{hello:"dddd"}]
-//       },
-//     ]
-//   },
-// ];
 
 
 @Component({
@@ -65,9 +35,10 @@ export class UserComponent implements OnInit {
   constructor(
     private loginService: LoginService,
     private dataService: DataService,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog,
   ) {
-    
+
   }
   hasChild = (_: number, node: FileFolderNode) => !!node.children && node.children.length > 0;
 
@@ -82,13 +53,24 @@ export class UserComponent implements OnInit {
     var userFiles = await this.dataService.GetUserFiles(this.data.user_id)
     this.UserFilesFolders = FilesFolderRelation(userFiles, userFolders)
     this.dataSource.data = this.UserFilesFolders;
-    console.log("user File Folder ", JSON.stringify(this.UserFilesFolders))
+    // console.log("user File Folder ", JSON.stringify(this.UserFilesFolders))
   }
 
   GetUserGroups(id: number) {
     this.dataService.GetUserGroups(id).subscribe((res: model.response) => {
       this.groups = res.data
     })
+  }
+
+  openDialog(group_id:Number) {
+
+    const dialogRef = this.dialog.open(GroupUserDialogComponent,{
+      data: group_id
+    });
+
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log(`Dialog result: ${result}`);
+    // });
   }
 
 }

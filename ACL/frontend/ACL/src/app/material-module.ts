@@ -9,6 +9,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {NgModule} from '@angular/core';
 import {MatTreeModule} from '@angular/material/tree';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
     exports: [
@@ -21,7 +23,9 @@ import {MatTreeModule} from '@angular/material/tree';
         MatInputModule,
         MatGridListModule,
         MatSnackBarModule,
-        MatTreeModule
+        MatTreeModule,
+        MatDialogModule,
+        MatListModule
     ]
 })
 

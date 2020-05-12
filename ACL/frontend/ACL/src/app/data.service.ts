@@ -31,6 +31,10 @@ export class DataService {
     return this.httpClient.get(this.REST_API_SERVER + "/user/" + id)
   }
 
+  public GetGroupUsers(id: number) {
+    return this.httpClient.get(this.REST_API_SERVER + "/groupUsers/" + id)
+  }
+
   async GetUserFolders(id: number){
     const response= await this.httpClient.get(this.REST_API_SERVER + "/folders/" + id).toPromise()
     return response
