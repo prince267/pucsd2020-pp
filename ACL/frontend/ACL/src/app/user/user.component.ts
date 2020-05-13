@@ -51,13 +51,16 @@ export class UserComponent implements OnInit {
   async  ngOnInit() {
     this.data = JSON.parse(this.loginService.token())
     this.GetUserGroups(this.data.user_id)
+    this.GetFIleFolderTree()
+  }
+
+  async GetFIleFolderTree(){
     var userFolders = await this.dataService.GetUserFolders(this.data.user_id)
     var userFiles = await this.dataService.GetUserFiles(this.data.user_id)
     this.UserFilesFolders = FilesFolderRelation(userFiles, userFolders)
     this.dataSource.data = this.UserFilesFolders;
-    // console.log("user File Folder ", JSON.stringify(this.UserFilesFolders))
-  }
 
+  }
   GetUserGroups(id: number) {
     this.dataService.GetUserGroups(id).subscribe((res: model.response) => {
       this.groups = res.data
@@ -80,7 +83,7 @@ export class UserComponent implements OnInit {
       data: { user_id, parent_path_name, parent_id }
     })
     dialogRef.afterClosed().subscribe(result => {
-      this.ngOnInit();
+      this.GetFIleFolderTree();
     });
   }
   openFileDataDialog(path: string, type: string, name: string, permission_id: number) {
