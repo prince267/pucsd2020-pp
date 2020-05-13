@@ -1,6 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DataService } from '../data.service'
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 interface ParentData {
   user_id: number,
   parent_path_name: string,
@@ -17,7 +19,9 @@ export class FileFolderOptionDialogComponent implements OnInit {
   Entity: string;
   Options: string[] = ['Folder', 'File'];
 
-  constructor(public dialog: MatDialog,
+  constructor(
+    private _snackBar: MatSnackBar,
+    public dialog: MatDialog,
     public dialogRef: MatDialogRef<FileFolderOptionDialogComponent>,
     private dataService: DataService,
     @Inject(MAT_DIALOG_DATA) public data: ParentData) { }
@@ -25,8 +29,19 @@ export class FileFolderOptionDialogComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  closeDialog() {
+    this.dialogRef.close()
+  }
+  openSnackBar(message, action) {
+    this._snackBar.open(message, action, {
+      duration: 3000,
+    });
+  }
+
   async createEntity(EntityName: string, EntityType: string) {
+
     if (EntityType == undefined || EntityName == "") {
+      this.openSnackBar("Please Choose Options and Path", " 😓")
       return
     }
     let EntityPathName = this.data.parent_path_name + "/" + EntityName
@@ -37,14 +52,17 @@ export class FileFolderOptionDialogComponent implements OnInit {
       }
       var FolderResponse = await this.dataService.CreateFolder(FolderData)
       if (FolderResponse.status == 200) {
-        let FolderInFolderData = {
+        let UserFolderData = {
           "user_id": this.data.user_id,
-          "parent_folder_id":this.data.parent_id,
-          "child_folder_name":EntityName,
-          "child_folder_id":FolderResponse.data,
-          "permission_id":2
+          "parent_folder_id": this.data.parent_id,
+          "child_folder_name": EntityName,
+          "child_folder_id": FolderResponse.data,
+          "permission_id": 2
         }
-        console.log(FolderInFolderData)
+        this.dataService.NewUserFolder(UserFolderData).subscribe(res => {
+          this.openSnackBar("New Folder Created", " 🎉")
+          this.dialogRef.close()
+        })
       }
     }
     if (EntityType == "File") {
@@ -54,15 +72,18 @@ export class FileFolderOptionDialogComponent implements OnInit {
       }
       var FileResponse = await this.dataService.CreateFile(FileData)
       if (FileResponse.status == 200) {
-        let FileInFolderData = {
+        let UserFileData = {
           "user_id": this.data.user_id,
-          "parent_folder_id":this.data.parent_id,
-          "child_file_name":EntityName,
-          "child_file_id":FileResponse.data,
-          "permission_id":2
+          "parent_folder_id": this.data.parent_id,
+          "child_file_name": EntityName,
+          "child_file_id": FileResponse.data,
+          "permission_id": 2
         }
-        console.log(FileInFolderData)
-      }  
+        this.dataService.NewUserFile(UserFileData).subscribe(res => {
+          this.openSnackBar("New File Created", " 🎉")
+          this.dialogRef.close()
+        })
+      }
     }
     // console.log("insert into file/folder", [EntityName, EntityPathName])
     // console.log("insert into file/folder_infolder", [this.data.user_id, this.data.parent_id, EntityName, 212, 1])

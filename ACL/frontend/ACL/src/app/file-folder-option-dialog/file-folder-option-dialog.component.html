@@ -18,6 +18,6 @@
 <!-- <div>Your favorite season is: {{Entity}}</div> -->
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-    <button mat-raised-button color="primary"  >Close</button>
+    <button mat-raised-button color="primary" (click)="closeDialog()"  >Close</button>
     <button mat-raised-button color="primary" (click)="createEntity(name.value,Entity)"  >Create</button>  
   </mat-dialog-actions>

@@ -74,11 +74,14 @@ export class UserComponent implements OnInit {
     //   console.log(`Dialog result: ${result}`);
     // });
   }
-  FileFolderOptionDialog(user_id:number,parent_path_name:string,parent_id:number) {
+  FileFolderOptionDialog(user_id: number, parent_path_name: string, parent_id: number) {
     // console.log([user_id,parent_path_name,parent_id])
-    this.dialog.open(FileFolderOptionDialogComponent,{
-      data:{user_id,parent_path_name,parent_id}
+    const dialogRef=this.dialog.open(FileFolderOptionDialogComponent, {
+      data: { user_id, parent_path_name, parent_id }
     })
+    dialogRef.afterClosed().subscribe(result => {
+      this.ngOnInit();
+    });
   }
   openFileDataDialog(path: string, type: string, name: string, permission_id: number) {
     if (type == "Folder") {

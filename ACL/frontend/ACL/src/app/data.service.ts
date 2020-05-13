@@ -84,6 +84,30 @@ export class DataService {
     return response
   }
 
+
+  public NewUserFile(UserFileData) {
+    
+    let httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    let options = {
+      headers: httpHeaders
+    };
+    return this.httpClient.post(this.REST_API_SERVER + "/userFile", UserFileData, options)
+  }
+
+
+  public NewUserFolder(UserFolderData) {
+    
+    let httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    let options = {
+      headers: httpHeaders
+    };
+    return this.httpClient.post(this.REST_API_SERVER + "/userFolder", UserFolderData, options)
+  }
+
   public deleteProduct(id) {
     return this.httpClient.delete(this.REST_API_SERVER + '/' + id).pipe(catchError(this.handleError));
   }
