@@ -11,6 +11,7 @@ import {NgModule} from '@angular/core';
 import {MatTreeModule} from '@angular/material/tree';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatListModule} from '@angular/material/list';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
     exports: [
@@ -25,7 +26,8 @@ import {MatListModule} from '@angular/material/list';
         MatSnackBarModule,
         MatTreeModule,
         MatDialogModule,
-        MatListModule
+        MatListModule,
+        MatRadioModule
     ]
 })
 

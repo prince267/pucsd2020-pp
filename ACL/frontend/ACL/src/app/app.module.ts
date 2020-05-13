@@ -13,7 +13,6 @@ import { GroupUserDialogComponent } from './group-user-dialog/group-user-dialog.
 import { FileDataDialogComponent } from './file-data-dialog/file-data-dialog.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { FileFolderOptionDialogComponent } from './file-folder-option-dialog/file-folder-option-dialog.component';
-import { NewFileFolderDialogComponent } from './new-file-folder-dialog/new-file-folder-dialog.component'
 
 @NgModule({
   declarations: [
@@ -23,8 +22,7 @@ import { NewFileFolderDialogComponent } from './new-file-folder-dialog/new-file-
     GroupUserDialogComponent,
     FileDataDialogComponent,
     AdminDashboardComponent,
-    FileFolderOptionDialogComponent,
-    NewFileFolderDialogComponent
+    FileFolderOptionDialogComponent
   ],
   imports: [
     BrowserModule,

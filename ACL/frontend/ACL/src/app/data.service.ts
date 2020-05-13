@@ -49,15 +49,39 @@ export class DataService {
   }
 
   public WriteIntoFile(path: string, content: string) {
-    console.log(path,content)
+    console.log(path, content)
     return this.httpClient.get(this.REST_API_SERVER + "/wfile/?path=" + path + "&content=" + content)
   }
 
   public sendGetRequest() {
     return this.httpClient.get(this.REST_API_SERVER).pipe(retry(3), catchError(this.handleError));
   }
+
   public getById(id) {
     return this.httpClient.get(this.REST_API_SERVER + '/' + id);
+  }
+
+  async CreateFolder(FolderData) {
+    let httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    let options = {
+      headers: httpHeaders
+    };
+    const response = this.httpClient.post<{status:number,data:any}>(this.REST_API_SERVER + "/folder", FolderData, options).toPromise()
+    return response;
+  }
+
+  async CreateFile(FileData) {
+    
+    let httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    let options = {
+      headers: httpHeaders
+    };
+    const response= this.httpClient.post<{status:number,data:any}>(this.REST_API_SERVER + "/file", FileData, options).toPromise()
+    return response
   }
 
   public deleteProduct(id) {
