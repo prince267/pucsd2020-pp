@@ -3,8 +3,10 @@ import { DataService } from '../data.service';
 import { response, FileFolderNode, AllFileFolderNode } from '../models/model'
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
+import { MatDialog } from '@angular/material/dialog';
 import { FilesFolderRelation } from '../FilesFoldersRelation/FileFolderRelation'
 import { AllFilesFolderRelation } from '../FilesFoldersRelation/AllFilesFoldersRelation'
+import { ChangePermissionDialogComponent } from '../change-permission-dialog/change-permission-dialog.component'
 
 interface user {
   user_id: number,
@@ -12,25 +14,28 @@ interface user {
   last_name: string,
   password: string
 }
+
 @Component({
   selector: 'app-admin-dashboard',
   templateUrl: './admin-dashboard.component.html',
   styleUrls: ['./admin-dashboard.component.css']
 })
+
 export class AdminDashboardComponent implements OnInit {
   treeControl = new NestedTreeControl<FileFolderNode>(node => node.children);
   dataSource = new MatTreeNestedDataSource<FileFolderNode>();
 
   FileFolderTreeControl = new NestedTreeControl<AllFileFolderNode>(node => node.children)
-  FileFolderDataSource=new MatTreeNestedDataSource<AllFileFolderNode>();
+  FileFolderDataSource = new MatTreeNestedDataSource<AllFileFolderNode>();
 
   constructor(
+    public dialog: MatDialog,
     private dataService: DataService
   ) { }
 
   hasChild = (_: number, node: FileFolderNode) => !!node.children && node.children.length > 0;
   FileFolderhasChild = (_: number, node: AllFileFolderNode) => !!node.children && node.children.length > 0;
-    
+
   UserFilesFolders = []
   FoldersFiles = []
   users: user[]
@@ -44,8 +49,8 @@ export class AdminDashboardComponent implements OnInit {
   }
 
   async GetFileFolderTree(UserId: number) {
-    if(UserId==undefined){
-      this.dataSource.data=[]
+    if (UserId == undefined) {
+      this.dataSource.data = []
       return
     }
     // console.log("*****",UserId)
@@ -56,6 +61,9 @@ export class AdminDashboardComponent implements OnInit {
     // console.log(this.dataSource.data)
   }
 
+  PermissionDialog(){
+    this.dialog.open(ChangePermissionDialogComponent)
+  }
   async GetAllFileAndFolders() {
 
     var Folders = await this.dataService.GetAllFolders()
@@ -63,7 +71,7 @@ export class AdminDashboardComponent implements OnInit {
     // console.log("Folders are ***", Folders)
     // console.log("files are  ", Files)
     this.FoldersFiles = FilesFolderRelation(Folders, Files)
-    this.FileFolderDataSource.data=this.FoldersFiles
+    this.FileFolderDataSource.data = this.FoldersFiles
     // console.log(JSON.stringify(this.FileFolderDataSource.data))
     // this.dataSource.data = this.UserFilesFolders;
     // console.log(this.dataSource.data)

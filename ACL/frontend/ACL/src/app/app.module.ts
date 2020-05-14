@@ -13,6 +13,7 @@ import { GroupUserDialogComponent } from './group-user-dialog/group-user-dialog.
 import { FileDataDialogComponent } from './file-data-dialog/file-data-dialog.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { FileFolderOptionDialogComponent } from './file-folder-option-dialog/file-folder-option-dialog.component';
+import { ChangePermissionDialogComponent } from './change-permission-dialog/change-permission-dialog.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FileFolderOptionDialogComponent } from './file-folder-option-dialog/fil
     GroupUserDialogComponent,
     FileDataDialogComponent,
     AdminDashboardComponent,
-    FileFolderOptionDialogComponent
+    FileFolderOptionDialogComponent,
+    ChangePermissionDialogComponent
   ],
   imports: [
     BrowserModule,

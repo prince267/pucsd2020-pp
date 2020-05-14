@@ -36,6 +36,16 @@ export class DataService {
     return this.httpClient.get(this.REST_API_SERVER + "/user")
   }
 
+  async GetParentFiles(UserID: number, FolderID: number) {
+    const response = this.httpClient.get<{ status: number, data: [] }>(this.REST_API_SERVER + "/parentFiles/?UserID=" + UserID + "&FolderID=" + FolderID).toPromise()
+    return response
+  }
+
+  async GetParentFolders(UserID: number, FolderID: number) {
+    const response = this.httpClient.get<{ status: number, data: [] }>(this.REST_API_SERVER + "/parentFolders/?UserID=" + UserID + "&FolderID=" + FolderID).toPromise()
+    return response
+  }
+
   async GetAllFolders() {
     const response = this.httpClient.get(this.REST_API_SERVER + "/allFolders").toPromise()
     return response
