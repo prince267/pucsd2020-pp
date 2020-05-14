@@ -12,6 +12,7 @@ import {MatTreeModule} from '@angular/material/tree';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatListModule} from '@angular/material/list';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
     exports: [
@@ -27,7 +28,8 @@ import {MatRadioModule} from '@angular/material/radio';
         MatTreeModule,
         MatDialogModule,
         MatListModule,
-        MatRadioModule
+        MatRadioModule,
+        MatSelectModule
     ]
 })
 

@@ -31,6 +31,21 @@ export class DataService {
     return this.httpClient.get(this.REST_API_SERVER + "/user/" + id)
   }
 
+
+  public GetAllUser() {
+    return this.httpClient.get(this.REST_API_SERVER + "/user")
+  }
+
+  async GetAllFolders() {
+    const response = this.httpClient.get(this.REST_API_SERVER + "/allFolders").toPromise()
+    return response
+  }
+
+  async GetAllFiles() {
+    const response = this.httpClient.get(this.REST_API_SERVER + "/allFiles").toPromise()
+    return response
+  }
+
   public GetGroupUsers(id: number) {
     return this.httpClient.get(this.REST_API_SERVER + "/groupUsers/" + id)
   }
@@ -68,25 +83,25 @@ export class DataService {
     let options = {
       headers: httpHeaders
     };
-    const response = this.httpClient.post<{status:number,data:any}>(this.REST_API_SERVER + "/folder", FolderData, options).toPromise()
+    const response = this.httpClient.post<{ status: number, data: any }>(this.REST_API_SERVER + "/folder", FolderData, options).toPromise()
     return response;
   }
 
   async CreateFile(FileData) {
-    
+
     let httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
     });
     let options = {
       headers: httpHeaders
     };
-    const response= this.httpClient.post<{status:number,data:any}>(this.REST_API_SERVER + "/file", FileData, options).toPromise()
+    const response = this.httpClient.post<{ status: number, data: any }>(this.REST_API_SERVER + "/file", FileData, options).toPromise()
     return response
   }
 
 
   public NewUserFile(UserFileData) {
-    
+
     let httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
     });
@@ -98,7 +113,7 @@ export class DataService {
 
 
   public NewUserFolder(UserFolderData) {
-    
+
     let httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
     });
@@ -111,6 +126,7 @@ export class DataService {
   public deleteProduct(id) {
     return this.httpClient.delete(this.REST_API_SERVER + '/' + id).pipe(catchError(this.handleError));
   }
+
   public updateUser(data, id) {
     console.log("caledd update")
     let httpHeaders = new HttpHeaders({

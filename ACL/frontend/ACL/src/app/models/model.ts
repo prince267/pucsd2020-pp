@@ -10,6 +10,30 @@ interface response {
     data: []
 }
 
+interface FileFolderNode {
+    user_id: number;
+    parent_folder_id: number;
+    parent_folder_path: string;
+    name: string;
+    id: number;
+    permission_id: number;
+    permission_descrp: string;
+    path_name: string;
+    type: string;
+    children?: FileFolderNode[];
+}
+
+interface AllFileFolderNode {
+    parent_folder_id: number;
+    parent_folder_path: string;
+    name: string;
+    id: number;
+    path_name: string;
+    type: string;
+    children?: FileFolderNode[];
+}
+
+
 interface groupUsers {
     user_id: number,
     first_name: string,
@@ -28,4 +52,12 @@ interface fileDataResponse {
 
 }
 
-export { userData, response, userGroups, groupUsers, fileDataResponse }
+export {
+    userData,
+    response,
+    userGroups,
+    groupUsers,
+    fileDataResponse,
+    FileFolderNode,
+    AllFileFolderNode
+}
