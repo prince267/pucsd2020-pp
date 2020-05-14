@@ -6,6 +6,7 @@ import { Router, NavigationEnd } from "@angular/router";
 })
 export class LoginService {
   TOKEN_KEY = "token"
+  ADMIN="admin"
   constructor(
     private httpClient: HttpClient,
     private router: Router
@@ -15,12 +16,17 @@ export class LoginService {
     return localStorage.getItem(this.TOKEN_KEY);
   }
 
+  get isAdmin(){
+    return !!localStorage.getItem(this.ADMIN)
+  }
+
   get isAuthenticated() {
     return !!localStorage.getItem(this.TOKEN_KEY);
   }
 
  public logout() {
     localStorage.removeItem(this.TOKEN_KEY);
+    localStorage.removeItem(this.ADMIN)
     this.router.navigateByUrl('/');
   }
   public login(data) {

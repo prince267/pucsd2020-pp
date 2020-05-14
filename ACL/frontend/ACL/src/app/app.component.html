@@ -6,14 +6,15 @@
     Access Control List
   </h1>
   <div class="line"></div>
-  <!-- <button mat-button *ngIf="loginService.isAuthenticated" routerLink="/">
+  <button mat-button *ngIf="loginService.isAdmin" routerLink="/">
     <span class="material-icons">
-      create_new_folder
-    </span>&ensp;New Folder
+      person_add
+    </span>&ensp;New User
   </button>
-  <button mat-button *ngIf="loginService.isAuthenticated" routerLink="/register"><span class="material-icons">
-      insert_drive_file
-    </span>&ensp;New File</button> -->
+  <h1 *ngIf="loginService.isAdmin" style="margin-left: 250px;">
+    Hello Admin !!!
+  </h1>
+  
   <button style="position: absolute; right: 0;" *ngIf="loginService.isAuthenticated" mat-button (click)="logout()">
     <span class="material-icons">
       exit_to_app

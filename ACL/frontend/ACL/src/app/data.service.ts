@@ -69,13 +69,24 @@ export class DataService {
     return response
   }
 
-  public GetFileData(path: string) {
-    return this.httpClient.get(this.REST_API_SERVER + "/rfile/?path=" + path)
+  public GetFileData(fileInfo) {
+    let httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    let options = {
+      headers: httpHeaders
+    };
+    return this.httpClient.post(this.REST_API_SERVER + "/rfile", fileInfo, options)
   }
 
-  public WriteIntoFile(path: string, content: string) {
-    console.log(path, content)
-    return this.httpClient.get(this.REST_API_SERVER + "/wfile/?path=" + path + "&content=" + content)
+  public WriteIntoFile(fileInfo) {
+    let httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    let options = {
+      headers: httpHeaders
+    };
+    return this.httpClient.post(this.REST_API_SERVER + "/wfile", fileInfo, options)
   }
 
   public sendGetRequest() {
@@ -136,6 +147,31 @@ export class DataService {
   public deleteProduct(id) {
     return this.httpClient.delete(this.REST_API_SERVER + '/' + id).pipe(catchError(this.handleError));
   }
+
+  public updateUserFilePermission(data) {
+    console.log("caledd update")
+    let httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    let options = {
+      headers: httpHeaders
+    };
+    return this.httpClient.put(this.REST_API_SERVER + '/file', data, options);
+  }
+
+  public updateUserFolderPermission(data) {
+    console.log("caledd update")
+    let httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    let options = {
+      headers: httpHeaders
+    };
+    return this.httpClient.put(this.REST_API_SERVER + '/folder', data, options);
+  }
+
+
+
 
   public updateUser(data, id) {
     console.log("caledd update")

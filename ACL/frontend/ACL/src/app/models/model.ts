@@ -23,6 +23,18 @@ interface FileFolderNode {
     children?: FileFolderNode[];
 }
 
+// interface FileFolder{
+//     user_id: number;
+//     parent_folder_id: number;
+//     parent_folder_path: string;
+//     name: string;
+//     id: number;
+//     permission_id: number;
+//     permission_descrp: string;
+//     path_name: string;
+//     type: string;
+// }
+
 interface AllFileFolderNode {
     parent_folder_id: number;
     parent_folder_path: string;

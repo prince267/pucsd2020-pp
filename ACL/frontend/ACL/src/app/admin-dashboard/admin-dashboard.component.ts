@@ -33,6 +33,7 @@ export class AdminDashboardComponent implements OnInit {
     private dataService: DataService
   ) { }
 
+  Id:number
   hasChild = (_: number, node: FileFolderNode) => !!node.children && node.children.length > 0;
   FileFolderhasChild = (_: number, node: AllFileFolderNode) => !!node.children && node.children.length > 0;
 
@@ -49,6 +50,7 @@ export class AdminDashboardComponent implements OnInit {
   }
 
   async GetFileFolderTree(UserId: number) {
+    this.Id=UserId
     if (UserId == undefined) {
       this.dataSource.data = []
       return
@@ -61,8 +63,14 @@ export class AdminDashboardComponent implements OnInit {
     // console.log(this.dataSource.data)
   }
 
-  PermissionDialog(){
-    this.dialog.open(ChangePermissionDialogComponent)
+  PermissionDialog(node1){
+    // console.log(JSON.stringify(node1))
+   const dialogRef= this.dialog.open(ChangePermissionDialogComponent,{
+      data:node1
+    })
+    dialogRef.afterClosed().subscribe(result => {
+      this.GetFileFolderTree(this.Id)
+    });
   }
   async GetAllFileAndFolders() {
 

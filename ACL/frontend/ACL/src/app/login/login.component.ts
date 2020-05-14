@@ -45,8 +45,8 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     if(this.loginForm.value.UserId==0 && this.loginForm.value.Password=="root"){
-      console.log(this.loginForm.value)
       localStorage.setItem("token",JSON.stringify(this.loginForm.value));
+      localStorage.setItem("admin",JSON.stringify(this.loginForm.value))
       this.router.navigate(['admin'])
     }
     else{

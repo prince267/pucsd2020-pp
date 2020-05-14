@@ -51,7 +51,7 @@
             {{node.type == 'Folder' ? 'folder' :'insert_drive_file'}}
           </span>&ensp;{{node.name}}
         </button>
-        <button mat-icon-button color="primary" aria-label="Example icon button with a home icon" (click)="PermissionDialog()">
+        <button mat-icon-button color="primary" aria-label="Example icon button with a home icon" (click)="PermissionDialog(node)">
           <mat-icon>autorenew</mat-icon>
         </button>
       </li>
@@ -71,7 +71,7 @@
           <span class="material-icons">
             {{node.type == 'Folder' ? 'folder' :'insert_drive_file'}}
           </span>&ensp;{{node.name}}
-          <button mat-icon-button color="primary" aria-label="Example icon button with a home icon" (click)="PermissionDialog()">
+          <button mat-icon-button color="primary" aria-label="Example icon button with a home icon" (click)="PermissionDialog(node)">
             
             <mat-icon>autorenew</mat-icon>
           </button>
