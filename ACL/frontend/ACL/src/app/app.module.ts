@@ -14,6 +14,7 @@ import { FileDataDialogComponent } from './file-data-dialog/file-data-dialog.com
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { FileFolderOptionDialogComponent } from './file-folder-option-dialog/file-folder-option-dialog.component';
 import { ChangePermissionDialogComponent } from './change-permission-dialog/change-permission-dialog.component';
+import { RegisterDialogComponent } from './register-dialog/register-dialog.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ChangePermissionDialogComponent } from './change-permission-dialog/chan
     FileDataDialogComponent,
     AdminDashboardComponent,
     FileFolderOptionDialogComponent,
-    ChangePermissionDialogComponent
+    ChangePermissionDialogComponent,
+    RegisterDialogComponent
   ],
   imports: [
     BrowserModule,
