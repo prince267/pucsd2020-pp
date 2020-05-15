@@ -33,7 +33,7 @@
       </mat-form-field>
       <!-- <p> Selected food: {{selectedValue}} </p> -->
       <button style="margin-left: 20px;" mat-raised-button color="primary"
-        (click)="GetFileFolderTree(selectedValue)">Search</button>
+        (click)="GetUserFileFolderTree(selectedValue)">Search</button>
     </form>
   </mat-card-content>
   <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">

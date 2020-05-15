@@ -5,6 +5,7 @@ import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { MatDialog } from '@angular/material/dialog';
 import { FilesFolderRelation } from '../FilesFoldersRelation/FileFolderRelation'
+import {MatSnackBar} from '@angular/material/snack-bar';
 import { AllFilesFolderRelation } from '../FilesFoldersRelation/AllFilesFoldersRelation'
 import { ChangePermissionDialogComponent } from '../DialogComponent/change-permission-dialog/change-permission-dialog.component'
 
@@ -29,6 +30,7 @@ export class AdminDashboardComponent implements OnInit {
   FileFolderDataSource = new MatTreeNestedDataSource<AllFileFolderNode>();
 
   constructor(
+    private _snackBar: MatSnackBar,
     public dialog: MatDialog,
     private dataService: DataService
   ) { }
@@ -49,44 +51,121 @@ export class AdminDashboardComponent implements OnInit {
     this.GetAllFileAndFolders()
   }
 
-  async GetFileFolderTree(UserId: number) {
+  openSnackBar(message, action) {
+    this._snackBar.open(message, action, {
+      duration: 3000,
+    });
+  }
+
+  async GetUserFileFolderTree(UserId: number) {
     this.Id = UserId
     if (UserId == undefined) {
       this.dataSource.data = []
       return
     }
-    // console.log("*****",UserId)
     var userFolders = await this.dataService.GetUserFolders(UserId)
     var userFiles = await this.dataService.GetUserFiles(UserId)
     this.UserFilesFolders = FilesFolderRelation(userFiles, userFolders)
     this.dataSource.data = this.UserFilesFolders;
-    // console.log(this.dataSource.data)
   }
 
   PermissionDialog(node1) {
-    // console.log(JSON.stringify(node1))
     const dialogRef = this.dialog.open(ChangePermissionDialogComponent, {
       data: node1
     })
     dialogRef.afterClosed().subscribe(result => {
-      this.GetFileFolderTree(this.Id)
+      this.GetUserFileFolderTree(this.Id)
     });
   }
-  async GetAllFileAndFolders() {
 
+  async GetAllFileAndFolders() {
     var Folders = await this.dataService.GetAllFolders()
     var Files = await this.dataService.GetAllFiles()
-    // console.log("Folders are ***", Folders)
-    // console.log("files are  ", Files)
     this.FoldersFiles = FilesFolderRelation(Folders, Files)
     this.FileFolderDataSource.data = this.FoldersFiles
-    // console.log(JSON.stringify(this.FileFolderDataSource.data))
-    // this.dataSource.data = this.UserFilesFolders;
-    // console.log(this.dataSource.data)
+  }
+
+
+  DeleteInFolder(node) {
+    for (var i in node) {
+      if (!!node[i] && typeof (node[i]) == "object") {
+        if (i !== "children") {
+          if (node[i].type == "Folder") {
+            this.dataService.DeleteFolderInFolderById(node[i].id).subscribe(res => {
+              console.log(res)
+            })
+          }
+          if (node[i].type == "File") {
+            this.dataService.DeleteFileInFolderById(node[i].id).subscribe(res => {
+              console.log(res)
+            })
+          }
+        }
+        this.DeleteInFolder(node[i]);
+      }
+    }
+  }
+
+
+  DeleteFilesFolder(node) {
+    for (var i in node) {
+      if (!!node[i] && typeof (node[i]) == "object") {
+        if (i !== "children") {
+          if (node[i].type == "Folder") {
+            this.dataService.DeleteFolderById(node[i].id).subscribe(res => {
+              console.log(res)
+            })
+          }
+          if (node[i].type == "File") {
+            this.dataService.DeleteFileById(node[i].id).subscribe(res => {
+              console.log(res)
+            })
+          }
+        }
+        this.DeleteFilesFolder(node[i]);
+      }
+    }
   }
 
   Delete(node) {
-    console.log(node)
-  }
 
+    if (node.type == "File") {
+      this.dataService.DeleteFileInFolderById(node.id).subscribe(res => {
+        console.log(res)
+      })
+      this.dataService.DeleteFileById(node.id).subscribe(res => {
+        console.log(res)
+      })
+      this.dataService.DeleteEntity(node.path_name).subscribe(res => {
+        console.log(res)
+      })
+    }
+    else {
+      // Delete FolderInFolder and FileInFolder data
+      this.dataService.DeleteFolderInFolderById(node.id).subscribe(res => {
+        console.log(res)
+      })
+      if (node.children.length != 0) {
+        this.DeleteInFolder(node)
+      }
+      // Delete Folders and Files Data
+      this.dataService.DeleteFolderById(node.id).subscribe(res => {
+        console.log(res)
+      })
+      if (node.children.length != 0) {
+        this.DeleteFilesFolder(node)
+      }
+
+      this.dataService.DeleteEntity(node.path_name).subscribe(res => {
+        console.log(res)
+      })
+
+    }
+    this.GetAllFileAndFolders();
+    this.GetUserFileFolderTree(this.Id)
+  
+    
+    this.openSnackBar(node.type=="Folder"? 
+    "Folder Deleted":"File Deleted", " 🎉")
+  }
 }

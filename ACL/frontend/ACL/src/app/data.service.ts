@@ -158,6 +158,57 @@ export class DataService {
     return this.httpClient.put(this.REST_API_SERVER + '/file', data, options);
   }
 
+  public DeleteFolderInFolderById(id: number) {
+    let httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    let options = {
+      headers: httpHeaders
+    };
+    return this.httpClient.delete(this.REST_API_SERVER + "/FolderInFolder/" + id, options)
+  }
+
+  public DeleteFileInFolderById(id: number) {
+    let httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    let options = {
+      headers: httpHeaders
+    };
+    return this.httpClient.delete(this.REST_API_SERVER + "/FileInFolder/" + id, options)
+  }
+
+  public DeleteFolderById(id: number) {
+    let httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    let options = {
+      headers: httpHeaders
+    };
+    return this.httpClient.delete(this.REST_API_SERVER + "/folder/" + id, options)
+  }
+
+  public DeleteFileById(id: number) {
+    let httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    let options = {
+      headers: httpHeaders
+    };
+    return this.httpClient.delete(this.REST_API_SERVER + "/file/" + id, options)
+  }
+
+  public DeleteEntity(path: string) {
+    let httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    let options = {
+      headers: httpHeaders
+    };
+    return this.httpClient.delete(this.REST_API_SERVER + "/entity/?path=" + path, options)
+  }
+
+
   public updateUserFolderPermission(data) {
     let httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
