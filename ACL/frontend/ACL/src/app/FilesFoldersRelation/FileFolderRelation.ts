@@ -69,6 +69,9 @@ function FolderInFolderMapping(FileFolder, HeadParent) {
 
 function FilesFolderRelation(files, folder) {
     var FileFolder=files.data.concat(folder.data)
+    if(FileFolder.length==0){
+        return[]
+    }
     // var FilesMap = FilesMapping(files.data)
     // var FileFolderMap = FolderFileMapping(folder.data, FilesMap)
     // // FolderInFolderMapping(FileFolderMap,FilesMap)

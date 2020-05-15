@@ -66,6 +66,7 @@ export class AdminDashboardComponent implements OnInit {
     var userFolders = await this.dataService.GetUserFolders(UserId)
     var userFiles = await this.dataService.GetUserFiles(UserId)
     this.UserFilesFolders = FilesFolderRelation(userFiles, userFolders)
+    console.log(this.UserFilesFolders)
     this.dataSource.data = this.UserFilesFolders;
   }
 
