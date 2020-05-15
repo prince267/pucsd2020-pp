@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { DataService } from '../data.service'
-import {fileDataResponse} from '../models/model'
+import { DataService } from '../../data.service'
+import {fileDataResponse} from '../../models/model'
 import {MatSnackBar} from '@angular/material/snack-bar';
 interface fileInfo {
   path: string,
@@ -25,7 +25,6 @@ export class FileDataDialogComponent implements OnInit {
 
   FileData: string
   ngOnInit(): void {
-    console.log(this.data)
     this.GetFileData(this.data.path)
   }
   

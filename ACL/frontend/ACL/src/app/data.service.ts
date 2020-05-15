@@ -149,7 +149,6 @@ export class DataService {
   }
 
   public updateUserFilePermission(data) {
-    console.log("caledd update")
     let httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
     });
@@ -160,7 +159,6 @@ export class DataService {
   }
 
   public updateUserFolderPermission(data) {
-    console.log("caledd update")
     let httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
     });
@@ -168,6 +166,16 @@ export class DataService {
       headers: httpHeaders
     };
     return this.httpClient.put(this.REST_API_SERVER + '/folder', data, options);
+  }
+
+  public NewUser(userData) {
+    let httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    let options = {
+      headers: httpHeaders
+    };
+    return this.httpClient.post(this.REST_API_SERVER + '/user', userData, options);
   }
 
 

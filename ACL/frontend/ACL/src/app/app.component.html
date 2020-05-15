@@ -6,7 +6,7 @@
     Access Control List
   </h1>
   <div class="line"></div>
-  <button mat-button *ngIf="loginService.isAdmin" routerLink="/">
+  <button mat-button *ngIf="loginService.isAdmin" (click)="openRegisterDialog()">
     <span class="material-icons">
       person_add
     </span>&ensp;New User

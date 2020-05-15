@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { DataService } from '../data.service'
-import { groupUsers, response } from '../models/model'
+import { DataService } from '../../data.service'
+import { groupUsers, response } from '../../models/model'
 
 @Component({
   selector: 'app-group-user-dialog',

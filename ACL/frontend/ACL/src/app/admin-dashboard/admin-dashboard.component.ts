@@ -6,7 +6,7 @@ import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { MatDialog } from '@angular/material/dialog';
 import { FilesFolderRelation } from '../FilesFoldersRelation/FileFolderRelation'
 import { AllFilesFolderRelation } from '../FilesFoldersRelation/AllFilesFoldersRelation'
-import { ChangePermissionDialogComponent } from '../change-permission-dialog/change-permission-dialog.component'
+import { ChangePermissionDialogComponent } from '../DialogComponent/change-permission-dialog/change-permission-dialog.component'
 
 interface user {
   user_id: number,
@@ -33,7 +33,7 @@ export class AdminDashboardComponent implements OnInit {
     private dataService: DataService
   ) { }
 
-  Id:number
+  Id: number
   hasChild = (_: number, node: FileFolderNode) => !!node.children && node.children.length > 0;
   FileFolderhasChild = (_: number, node: AllFileFolderNode) => !!node.children && node.children.length > 0;
 
@@ -50,7 +50,7 @@ export class AdminDashboardComponent implements OnInit {
   }
 
   async GetFileFolderTree(UserId: number) {
-    this.Id=UserId
+    this.Id = UserId
     if (UserId == undefined) {
       this.dataSource.data = []
       return
@@ -63,10 +63,10 @@ export class AdminDashboardComponent implements OnInit {
     // console.log(this.dataSource.data)
   }
 
-  PermissionDialog(node1){
+  PermissionDialog(node1) {
     // console.log(JSON.stringify(node1))
-   const dialogRef= this.dialog.open(ChangePermissionDialogComponent,{
-      data:node1
+    const dialogRef = this.dialog.open(ChangePermissionDialogComponent, {
+      data: node1
     })
     dialogRef.afterClosed().subscribe(result => {
       this.GetFileFolderTree(this.Id)
@@ -83,6 +83,10 @@ export class AdminDashboardComponent implements OnInit {
     // console.log(JSON.stringify(this.FileFolderDataSource.data))
     // this.dataSource.data = this.UserFilesFolders;
     // console.log(this.dataSource.data)
+  }
+
+  Delete(node) {
+    console.log(node)
   }
 
 }

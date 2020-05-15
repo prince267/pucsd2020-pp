@@ -6,9 +6,9 @@ import { Router } from '@angular/router'
 import { MatDialog } from '@angular/material/dialog';
 import { DataService } from '../data.service'
 import { FilesFolderRelation } from '../FilesFoldersRelation/FileFolderRelation'
-import { GroupUserDialogComponent } from '../group-user-dialog/group-user-dialog.component'
-import { FileDataDialogComponent } from '../file-data-dialog/file-data-dialog.component'
-import { FileFolderOptionDialogComponent } from '../file-folder-option-dialog/file-folder-option-dialog.component'
+import { GroupUserDialogComponent } from '../DialogComponent/group-user-dialog/group-user-dialog.component'
+import { FileDataDialogComponent } from '../DialogComponent/file-data-dialog/file-data-dialog.component'
+import { FileFolderOptionDialogComponent } from '../DialogComponent/file-folder-option-dialog/file-folder-option-dialog.component'
 import * as model from '../models/model'
 
 

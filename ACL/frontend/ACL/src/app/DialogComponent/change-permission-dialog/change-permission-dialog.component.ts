@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FileFolderNode } from '../models/model'
-import { DataService } from '../data.service'
+import { FileFolderNode } from '../../models/model'
+import { DataService } from '../../data.service'
 import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({

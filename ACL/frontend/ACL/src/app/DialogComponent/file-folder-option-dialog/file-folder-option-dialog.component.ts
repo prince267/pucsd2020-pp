@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { DataService } from '../data.service'
+import { DataService } from '../../data.service'
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 interface ParentData {

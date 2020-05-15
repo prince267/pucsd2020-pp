@@ -115,10 +115,10 @@
               {{node.type == 'Folder' ? 'folder' :'insert_drive_file'}}
             </span>&ensp;{{node.name}}
           </button>
-          <button mat-icon-button color="primary" [disabled]="node.type=='File' || node.permission_id==1"
-            aria-label="Example icon button with a home icon">
+          <button mat-icon-button color="primary" 
+            aria-label="Example icon button with a home icon" (click)="Delete(node)">
             <!-- (click)="FileFolderOptionDialog(data.user_id,node.path_name,node.id)" -->
-            <mat-icon>add_circle</mat-icon>
+            <mat-icon> indeterminate_check_box</mat-icon>
           </button>
         </li>
         <!-- use a disabled button to provide padding for tree leaf -->
@@ -137,10 +137,10 @@
             <span class="material-icons">
               {{node.type == 'Folder' ? 'folder' :'insert_drive_file'}}
             </span>&ensp;{{node.name}}
-            <button mat-icon-button color="primary" [disabled]="node.type=='File' || node.permission_id==1"
-              aria-label="Example icon button with a home icon">
+            <button mat-icon-button color="primary" 
+              aria-label="Example icon button with a home icon" (click)="Delete(node)">
               <!-- (click)="FileFolderOptionDialog(data.user_id,node.path_name,node.id)" -->
-              <mat-icon>add_circle</mat-icon>
+              <mat-icon> indeterminate_check_box</mat-icon>
             </button>
           </div>
           <ul [class.example-tree-invisible]="!FileFolderTreeControl.isExpanded(node)">
