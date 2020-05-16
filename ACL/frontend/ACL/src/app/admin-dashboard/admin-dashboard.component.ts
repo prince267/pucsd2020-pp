@@ -5,9 +5,10 @@ import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { MatDialog } from '@angular/material/dialog';
 import { FilesFolderRelation } from '../FilesFoldersRelation/FileFolderRelation'
-import {MatSnackBar} from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { AllFilesFolderRelation } from '../FilesFoldersRelation/AllFilesFoldersRelation'
 import { ChangePermissionDialogComponent } from '../DialogComponent/change-permission-dialog/change-permission-dialog.component'
+import { AssignUserDialogComponent } from '../DialogComponent/assign-user-dialog/assign-user-dialog.component'
 
 interface user {
   user_id: number,
@@ -164,9 +165,27 @@ export class AdminDashboardComponent implements OnInit {
     }
     this.GetAllFileAndFolders();
     this.GetUserFileFolderTree(this.Id)
-  
-    
-    this.openSnackBar(node.type=="Folder"? 
-    "Folder Deleted":"File Deleted", " 🎉")
+
+
+    this.openSnackBar(node.type == "Folder" ?
+      "Folder Deleted" : "File Deleted", " 🎉")
+  }
+
+  assignDialog(node) {
+    if (node.id == 0) {
+      return
+    }
+    let data = {
+      entityData: node,
+      id: node.id,
+      type: node.type
+    }
+    const dialogRef = this.dialog.open(AssignUserDialogComponent, {
+      data: data
+    })
+    dialogRef.afterClosed().subscribe(res => {
+      this.GetUserFileFolderTree(this.Id)
+      this.GetAllFileAndFolders()
+    })
   }
 }

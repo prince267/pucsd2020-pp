@@ -64,6 +64,23 @@ interface fileDataResponse {
 
 }
 
+interface fileInFolder{
+    user_id:number,
+    parent_folder_id:number,
+    child_file_name:string,
+    child_file_id:number,
+    permission_id:number
+}
+
+interface folderInFolder{
+    user_id:number,
+    parent_folder_id:number,
+    child_folder_name:string,
+    child_folder_id:number,
+    permission_id:number
+}
+
+
 export {
     userData,
     response,
@@ -71,5 +88,7 @@ export {
     groupUsers,
     fileDataResponse,
     FileFolderNode,
-    AllFileFolderNode
+    AllFileFolderNode,
+    fileInFolder,
+    folderInFolder
 }

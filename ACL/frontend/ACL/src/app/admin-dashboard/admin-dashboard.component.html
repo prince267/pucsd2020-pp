@@ -95,6 +95,7 @@
    
   </mat-card-header>
   <mat-card-content>
+    <button mat-button style="color: blue; font-size: small;">* Click on Folder or Files to give access to User's</button>
       <button mat-button style="color: blue; font-size: small;">* Click on
         <span class="material-icons">
           indeterminate_check_box
@@ -111,13 +112,13 @@
           <!-- use a disabled button to provide padding for tree leaf -->
           <button mat-icon-button>
           </button>
-          <button mat-button>
+          <button mat-button (click)="assignDialog(node)">
             <span class="material-icons">
               {{node.type == 'Folder' ? 'folder' :'insert_drive_file'}}
             </span>&ensp;{{node.name}}
           </button>
           <button mat-icon-button color="primary" 
-            aria-label="Example icon button with a home icon" (click)="Delete(node)">
+            aria-label="Example icon button with a home icon" [disabled]="node.id==0" (click)="Delete(node)">
             <!-- (click)="FileFolderOptionDialog(data.user_id,node.path_name,node.id)" -->
             <mat-icon> indeterminate_check_box</mat-icon>
           </button>
@@ -134,11 +135,12 @@
               <mat-icon class="mat-icon-rtl-mirror">
                 {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
               </mat-icon>
+            </button><button mat-button (click)="assignDialog(node)">
+              <span class="material-icons">
+                {{node.type == 'Folder' ? 'folder' :'insert_drive_file'}}
+              </span>&ensp;{{node.name}}
             </button>
-            <span class="material-icons">
-              {{node.type == 'Folder' ? 'folder' :'insert_drive_file'}}
-            </span>&ensp;{{node.name}}
-            <button mat-icon-button color="primary" 
+            <button mat-icon-button [disabled]="node.id==0" color="primary" 
               aria-label="Example icon button with a home icon" (click)="Delete(node)">
          <mat-icon> indeterminate_check_box</mat-icon>
             </button>

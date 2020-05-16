@@ -64,9 +64,29 @@ export class DataService {
     const response = await this.httpClient.get(this.REST_API_SERVER + "/folders/" + id).toPromise()
     return response
   }
+
   async GetUserFiles(id: number) {
     const response = await this.httpClient.get(this.REST_API_SERVER + "/files/" + id).toPromise()
     return response
+  }
+
+
+  public GetFileUser(id: number) {
+    return this.httpClient.get(this.REST_API_SERVER + "/fileUser/" + id)
+  }
+
+
+  public GetFolderUser(id: number) {
+    return this.httpClient.get(this.REST_API_SERVER + "/folderUser/" + id)
+  }
+
+  public CheckIsFolderUser(userId: number, FolderId: number) {
+    return this.httpClient.get(this.REST_API_SERVER + "/folderUser/" + userId + "/" + FolderId)
+  }
+
+  public CheckIsFileUser(userId: number, FileId: number) {
+    return this.httpClient.get(this.REST_API_SERVER + "/fileUser/" + userId + "/" + FileId)
+  
   }
 
   public GetFileData(fileInfo) {

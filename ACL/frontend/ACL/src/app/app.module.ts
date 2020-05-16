@@ -15,6 +15,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { FileFolderOptionDialogComponent } from './DialogComponent/file-folder-option-dialog/file-folder-option-dialog.component';
 import { ChangePermissionDialogComponent } from './DialogComponent/change-permission-dialog/change-permission-dialog.component';
 import { RegisterDialogComponent } from './DialogComponent/register-dialog/register-dialog.component';
+import { AssignUserDialogComponent } from './DialogComponent/assign-user-dialog/assign-user-dialog.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { RegisterDialogComponent } from './DialogComponent/register-dialog/regis
     AdminDashboardComponent,
     FileFolderOptionDialogComponent,
     ChangePermissionDialogComponent,
-    RegisterDialogComponent
+    RegisterDialogComponent,
+    AssignUserDialogComponent
   ],
   imports: [
     BrowserModule,
