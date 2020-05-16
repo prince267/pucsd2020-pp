@@ -9,7 +9,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { AllFilesFolderRelation } from '../FilesFoldersRelation/AllFilesFoldersRelation'
 import { ChangePermissionDialogComponent } from '../DialogComponent/change-permission-dialog/change-permission-dialog.component'
 import { AssignUserDialogComponent } from '../DialogComponent/assign-user-dialog/assign-user-dialog.component'
-
+import {AdminFileFolderCreateDialogComponent} from '../DialogComponent/admin-file-folder-create-dialog/admin-file-folder-create-dialog.component'
 interface user {
   user_id: number,
   first_name: string,
@@ -188,4 +188,19 @@ export class AdminDashboardComponent implements OnInit {
       this.GetAllFileAndFolders()
     })
   }
+  NewEntity(node){
+    let folderData={
+      id:node.id,
+      path_name:node.path_name
+    }
+  const dialogRef=  this.dialog.open(AdminFileFolderCreateDialogComponent,{
+      data:folderData
+    })
+    dialogRef.afterClosed().subscribe(res=>{
+      this.GetUserFileFolderTree(this.Id)
+      this.GetAllFileAndFolders()
+      
+    })
+  }
 }
+

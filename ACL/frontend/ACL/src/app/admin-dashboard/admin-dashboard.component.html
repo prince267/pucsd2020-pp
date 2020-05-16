@@ -122,6 +122,12 @@
             <!-- (click)="FileFolderOptionDialog(data.user_id,node.path_name,node.id)" -->
             <mat-icon> indeterminate_check_box</mat-icon>
           </button>
+          <button mat-icon-button color="primary" [disabled]="node.type=='File'"
+            aria-label="Example icon button with a home icon" 
+            (click)="NewEntity(node)"
+            >
+            <mat-icon>add_circle</mat-icon>
+          </button>
         </li>
         <!-- use a disabled button to provide padding for tree leaf -->
 
@@ -143,6 +149,12 @@
             <button mat-icon-button [disabled]="node.id==0" color="primary" 
               aria-label="Example icon button with a home icon" (click)="Delete(node)">
          <mat-icon> indeterminate_check_box</mat-icon>
+            </button>
+            <button mat-icon-button color="primary" [disabled]="node.type=='File'"
+              aria-label="Example icon button with a home icon" 
+             (click)="NewEntity(node)"
+              >
+              <mat-icon>add_circle</mat-icon>
             </button>
           </div>
           <ul [class.example-tree-invisible]="!FileFolderTreeControl.isExpanded(node)">

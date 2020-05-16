@@ -3,6 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router, NavigationEnd } from "@angular/router";
 import { DataService } from "../../data.service"
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-register-dialog',
@@ -12,6 +13,7 @@ import { DataService } from "../../data.service"
 export class RegisterDialogComponent implements OnInit {
 
   constructor(
+    private _snackBar: MatSnackBar,
     private dataService: DataService,
     private formBuilder: FormBuilder,
     private router: Router,
@@ -26,6 +28,13 @@ export class RegisterDialogComponent implements OnInit {
   ngOnInit(): void {
     this.createFormValidations()
   }
+
+  openSnackBar(message, action) {
+    this._snackBar.open(message, action, {
+      duration: 3000,
+    });
+  }
+
   createFormValidations() {
     this.registrationForm = this.formBuilder.group({
       first_name: this.first_name,
@@ -41,7 +50,8 @@ export class RegisterDialogComponent implements OnInit {
     }
     console.log(userData)
     this.dataService.NewUser(userData).subscribe(res => {
-      console.log(res)
+      this.openSnackBar("New User Created", " 🎉")
+          
       this.dialogRef.close()
       this.router.navigate['/admin']
     })
