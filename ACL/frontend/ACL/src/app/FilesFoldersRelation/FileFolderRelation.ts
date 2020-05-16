@@ -92,7 +92,7 @@ function FilesFolderRelation(files, folder) {
     }
     var FileFolderMap = FolderInFolderMapping(FileFolder, HeadParent)
 
-    return FileFolderMap.children
+    return FileFolderMap
     // console.log("***  ",JSON.stringify(FileFolder))
 }
 
