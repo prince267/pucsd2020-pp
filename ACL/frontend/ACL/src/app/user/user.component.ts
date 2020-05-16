@@ -60,10 +60,6 @@ export class UserComponent implements OnInit {
     const dialogRef = this.dialog.open(GroupUserDialogComponent, {
       data: group_id
     });
-
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log(`Dialog result: ${result}`);
-    // });
   }
   FileFolderOptionDialog(user_id: number, parent_path_name: string, parent_id: number) {
     // console.log([user_id,parent_path_name,parent_id])
