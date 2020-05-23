@@ -7,7 +7,12 @@ build-static:
 			rm *.o
 			gcc main.c staticLibrary.a -o calculator
 
-
+build-shared:
+			gcc -fPIC -c src/arithematicOperations/*.c src/calculator/*.c
+			gcc -shared -Wl,-soname,sharedLibrary.so -o sharedLibrary.so *.o
+			export LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH
+			rm *.o
+			gcc main.c sharedLibrary.so -o calculator
 run:
 		./calculator
 
